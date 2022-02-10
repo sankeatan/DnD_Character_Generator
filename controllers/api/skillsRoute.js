@@ -1,3 +1,6 @@
+const router = require('express').Router();
+const axios = require('axios');
+
 router.get('/', async (req, res) => {
 
     await axios.get('https://www.dnd5eapi.co/api/skills')
@@ -18,3 +21,5 @@ router.get('/', async (req, res) => {
       // always executed
     });
   });
+
+  module.exports = router;
