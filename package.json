@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/sankeatan/DnD_Character_Generator.git"
   },
+<<<<<<< HEAD
+=======
+  "keywords": [],
+>>>>>>> 1ace18ef567e1b0fab502384764b27bc541df3b3
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -18,6 +22,19 @@
   },
   "homepage": "https://github.com/sankeatan/DnD_Character_Generator#readme",
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.17.2"
+=======
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.16.1",
+    "session": "^0.1.0"
+>>>>>>> 1ace18ef567e1b0fab502384764b27bc541df3b3
   }
 }
