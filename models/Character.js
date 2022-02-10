@@ -43,9 +43,13 @@ Character.init(
       type: DataTypes.STRING,
       allowNull: true
     },
-    background: {
-      type: DataTypes.STRING,
-      allowNull: false
+    background_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'background',
+        key: 'id',
+      },
     }
     
   },
