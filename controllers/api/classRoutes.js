@@ -22,6 +22,27 @@ router.get('/', async (req, res) => {
   });
 });
 
+router.get('/:id', async (req, res) => {
+  await axios.get(`https://www.dnd5eapi.co/api/classes/${req.params.id}`)
+.then(function (response) {
+  // handle success
+  console.log(response.data.results);
+  res.json(response.data.results);
+  const classes = response.data.results;
+  return classes;
+  
+})
+
+
+.catch(function (error) {
+  // handle error
+  console.log(error);
+})
+.then(function () {
+  // always executed
+});
+});
+
 
 
 
