@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../../config/connection');
+const sequelize = require('../config/connection');
 
 class Character extends Model {}
 
@@ -26,7 +26,7 @@ Character.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    level: {
+    lvl: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: DataTypes.NOW,
