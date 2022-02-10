@@ -3,7 +3,7 @@ const sequelize = require('../../config/connection');
 
 class Alignment extends Model {}
 
-Project.init(
+Alignment.init(
   {
 id: {
     type: DataTypes.INTEGER,
