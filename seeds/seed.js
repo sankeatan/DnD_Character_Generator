@@ -8,7 +8,7 @@ const charData = require('./charData.json');
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const users = await User.bulkCreate(userData, {
+  const user = await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
   });
@@ -16,7 +16,7 @@ const seedDatabase = async () => {
   for (const character of charData) {
     await Character.create({
       ...character,
-      user_id: users.id,
+      user_id: user[Math.floor(Math.random() * user.length)].id
     });
   }
 
