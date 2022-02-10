@@ -24,12 +24,29 @@ Project.init(
     },
     description: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
     level: {
-      type: DataTypes.DATE,
+      type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    race: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    class: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    subclass: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    background: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
     
   },
   {
