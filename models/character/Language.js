@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../../config/connection');
 
-class Skills extends Model {}
+class Language extends Model {}
 
 Project.init(
   {
@@ -18,14 +18,17 @@ character_id: {
         key: 'id',
       },
     },
+name: {
+    type: DataTypes.STRING,
+    allowNull: false
+}
 },
 {
   sequelize,
   timestamps: false,
-  freezeTableName: true,
   underscored: true,
-  modelName: 'skills',
+  modelName: 'language',
 }
 );
 
-module.exports = Skills;
+module.exports = Language;

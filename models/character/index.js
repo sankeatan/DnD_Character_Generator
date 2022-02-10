@@ -1,9 +1,10 @@
 const AbilityScores = require('./AbilityScores');
 const Character = require('./Character');
 const Alignment = require('./Alignment');
-const Languages = require('./Languages');
-const Proficiencies = require('./Proficiencies');
+const Language = require('./Language');
+const Proficiency = require('./Proficiency');
 const Skills = require('./Skills');
+const Equipment = require('./Equipment');
 
 Character.hasOne(AbilityScores, {
   foreignKey: 'character_id',
@@ -23,21 +24,21 @@ Alignment.belongsTo(Character, {
   foreignKey: 'character_id'
 });
 
-Character.hasOne(Languages, {
+Character.hasMany(Language, {
   foreignKey: 'character_id',
   onDelete: 'CASCADE'
 });
 
-Languages.belongsTo(Character, {
+Language.belongsTo(Character, {
   foreignKey: 'character_id'
 });
 
-Character.hasOne(Proficiencies, {
+Character.hasMany(Proficiency, {
   foreignKey: 'character_id',
   onDelete: 'CASCADE'
 });
 
-Proficiencies.belongsTo(Character, {
+Proficiency.belongsTo(Character, {
   foreignKey: 'character_id'
 });
 
@@ -50,5 +51,14 @@ Skills.belongsTo(Character, {
   foreignKey: 'character_id'
 });
 
+Character.hasMany(Equipment, {
+  foreignKey: 'character_id',
+  onDelete: 'CASCADE'
+});
 
-module.exports = { User, Project };
+Equipment.belongsTo(Character, {
+  foreignKey: 'character_id'
+});
+
+
+module.exports = { Character };
