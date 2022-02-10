@@ -23,13 +23,12 @@ Character.init(
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
-    level: {
+    lvl: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
     race: {
       type: DataTypes.STRING,
@@ -46,6 +45,10 @@ Character.init(
     background: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    alignment: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
     
   },

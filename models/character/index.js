@@ -1,6 +1,5 @@
 const AbilityScores = require('./AbilityScores');
-const Character = require('./Character');
-const Alignment = require('./Alignment');
+const Character = require('../Character');
 const Language = require('./Language');
 const Proficiency = require('./Proficiency');
 const Skills = require('./Skills');
@@ -12,15 +11,6 @@ Character.hasOne(AbilityScores, {
 });
 
 AbilityScores.belongsTo(Character, {
-  foreignKey: 'character_id'
-});
-
-Character.hasOne(Alignment, {
-  foreignKey: 'character_id',
-  onDelete: 'CASCADE'
-});
-
-Alignment.belongsTo(Character, {
   foreignKey: 'character_id'
 });
 
