@@ -3,13 +3,13 @@ const axios = require('axios');
 
 router.get('/', async (req, res) => {
 
-    await axios.get('https://www.dnd5eapi.co/api/equipment')
+    await axios.get('https://www.dnd5eapi.co/api/spells')
     .then(function (response) {
       // handle success
       console.log(response.data.results);
       res.json(response.data.results);
-      const equipment = response.data.results;
-      return equipment;
+      const spells = response.data.results;
+      return spells;
       
     })
   
