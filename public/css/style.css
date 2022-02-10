@@ -1,6 +1,11 @@
+
 header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
+
+/* body {
+  background-color: black;
+} */
 
 .no-button {
   background: none;
@@ -21,4 +26,13 @@ header, .project:not(:last-child) {
   color: #056605;
   font-weight: bold;
   margin-left: -5px;
+}
+
+/* #main-head { */
+  /* color:#056605; */
+/* } */
+
+.login-div{
+  display: flex;
+  justify-content: end;
 }
