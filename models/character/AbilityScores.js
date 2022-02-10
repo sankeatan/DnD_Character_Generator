@@ -3,7 +3,7 @@ const sequelize = require('../../config/connection');
 
 class AbilityScores extends Model {}
 
-Character.init(
+AbilityScore.init(
   {
 id: {
     type: DataTypes.INTEGER,

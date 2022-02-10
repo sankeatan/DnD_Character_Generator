@@ -3,7 +3,7 @@ const sequelize = require('../../config/connection');
 
 class Proficiency extends Model {}
 
-Character.init(
+Proficiency.init(
   {
 id: {
     type: DataTypes.INTEGER,
