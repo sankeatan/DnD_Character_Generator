@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const characterRoutes = require('./characterRoutes');
+
 const classesRoute = require('./classesRoute');
 const equipmentRoute = require('./equipmentRoute');
 const skillsRoute = require('./skillsRoute');
@@ -9,6 +10,7 @@ const alignmentRoute = require('./alignmentRoute');
 const abilityRoute = require('./abilityRoute');
 const proficiencyRoute = require('./proficiencyRoute');
 const spellsRoute = require('./spellsRoute');
+const equipmentCategoriesRoutes = require('./equipmentCategoriesRoutes.js');
 
 router.use('/users', userRoutes);
 router.use('/character', characterRoutes);
@@ -20,5 +22,6 @@ router.use('/alignment', alignmentRoute);
 router.use('/ability-scores', abilityRoute);
 router.use('/proficiencies', proficiencyRoute);
 router.use('/spells', spellsRoute);
+router.use('/equipment-categories', equipmentCategoriesRoutes);
 
 module.exports = router;

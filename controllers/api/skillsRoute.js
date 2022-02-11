@@ -22,4 +22,28 @@ router.get('/', async (req, res) => {
     });
   });
 
-  module.exports = router;
+
+router.get('/:name', async (req, res) => {
+
+  await axios.get(`https://www.dnd5eapi.co/api/${req.params.id}`)
+  .then(function (response) {
+    // handle success
+    console.log(response.data.results);
+    res.json(response.data.results);
+    const skills = response.data.results;
+    return skills;
+      
+  })
+  
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+});
+
+
+module.exports = router;
+

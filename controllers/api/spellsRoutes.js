@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const axios = require('axios');
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
 
-    await axios.get('https://www.dnd5eapi.co/api/equipment')
+    await axios.get(`https://www.dnd5eapi.co/api/spells/${req.params.id}`)
     .then(function (response) {
       // handle success
       console.log(response.data.results);
@@ -21,5 +21,6 @@ router.get('/', async (req, res) => {
       // always executed
     });
   });
+
 
 module.exports = router;
