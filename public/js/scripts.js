@@ -53,6 +53,6 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-loginButtonClick(){
-    console.log("ass")
-}
+// loginButtonClick(){
+//     console.log("ass")
+// }
