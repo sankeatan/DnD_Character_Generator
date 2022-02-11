@@ -15,10 +15,26 @@ name: {
     type: DataTypes.STRING,
     allowNull: false,
     },
-starting_proficiencies: {
-  type: DataTypes.JSON,
+languages: {
+  type: DataTypes.STRING,
   allowNull: false,
 },
+starting_equipment: {
+  type: DataTypes.STRING,
+  allowNull: false,
+},
+equipment_options: {
+  type: DataTypes.STRING,
+  allowNull: false,
+},
+proficiencies: {
+  type: DataTypes.STRING,
+  allowNull: false,
+},
+feature: {
+  type: DataTypes.STRING,
+  allowNull: false,
+}
 },
 {
   sequelize,
