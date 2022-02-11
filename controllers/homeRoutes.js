@@ -42,7 +42,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
   try {
-    res.render('login', {layout: "landingPage"});
+    res.render('loginForm', {layout: "landingPage"});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -50,7 +50,7 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
   try {
-    res.render('signup', {layout: "landingPage"});
+    res.render('signUpForm', {layout: "landingPage"});
   } catch (err) {
     res.status(500).json(err);
   }
