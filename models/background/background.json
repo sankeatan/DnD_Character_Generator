@@ -1,144 +1,40 @@
+[
 {
-	"index": "acolyte",
-	"name": "Acolyte",
-	"starting_proficiencies": [
-		{
-			"index": "skill-insight",
-			"name": "Skill: Insight",
-			"url": "/api/proficiencies/skill-insight"
-		},
-		{
-			"index": "skill-religion",
-			"name": "Skill: Religion",
-			"url": "/api/proficiencies/skill-religion"
-		}
-	],
-	"language_options": {
-		"choose": 2,
-		"type": "languages",
-		"from": [
-			{
-				"index": "common",
-				"name": "Common",
-				"url": "/api/languages/common"
-			},
-			{
-				"index": "dwarvish",
-				"name": "Dwarvish",
-				"url": "/api/languages/dwarvish"
-			},
-			{
-				"index": "elvish",
-				"name": "Elvish",
-				"url": "/api/languages/elvish"
-			},
-			{
-				"index": "giant",
-				"name": "Giant",
-				"url": "/api/languages/giant"
-			},
-			{
-				"index": "gnomish",
-				"name": "Gnomish",
-				"url": "/api/languages/gnomish"
-			},
-			{
-				"index": "goblin",
-				"name": "Goblin",
-				"url": "/api/languages/goblin"
-			},
-			{
-				"index": "halfling",
-				"name": "Halfling",
-				"url": "/api/languages/halfling"
-			},
-			{
-				"index": "orc",
-				"name": "Orc",
-				"url": "/api/languages/orc"
-			},
-			{
-				"index": "abyssal",
-				"name": "Abyssal",
-				"url": "/api/languages/abyssal"
-			},
-			{
-				"index": "celestial",
-				"name": "Celestial",
-				"url": "/api/languages/celestial"
-			},
-			{
-				"index": "draconic",
-				"name": "Draconic",
-				"url": "/api/languages/draconic"
-			},
-			{
-				"index": "deep-speech",
-				"name": "Deep Speech",
-				"url": "/api/languages/deep-speech"
-			},
-			{
-				"index": "infernal",
-				"name": "Infernal",
-				"url": "/api/languages/infernal"
-			},
-			{
-				"index": "primordial",
-				"name": "Primordial",
-				"url": "/api/languages/primordial"
-			},
-			{
-				"index": "sylvan",
-				"name": "Sylvan",
-				"url": "/api/languages/sylvan"
-			},
-			{
-				"index": "undercommon",
-				"name": "Undercommon",
-				"url": "/api/languages/undercommon"
-			}
-		]
-	},
-	"starting_equipment": [
-		{
-			"equipment": {
-				"index": "clothes-common",
-				"name": "Clothes, common",
-				"url": "/api/equipment/clothes-common"
-			},
-			"quantity": 1
-		},
-		{
-			"equipment": {
-				"index": "pouch",
-				"name": "Pouch",
-				"url": "/api/equipment/pouch"
-			},
-			"quantity": 1
-		}
-	],
-	"starting_equipment_options": [
-		{
-			"choose": 1,
-			"type": "equipment",
-			"from": [
-				{
-					"equipment_category": {
-						"index": "holy-symbols",
-						"name": "Holy Symbols",
-						"url": "/api/equipment-categories/holy-symbols"
-					}
-				}
-			]
-		}
-	],
-	"feature": {
-		"name": "Shelter of the Faithful",
-		"desc": [
-			"As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle.",
-			"You might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple."
-		]
-	},
-
-	"url": "/api/backgrounds/acolyte"
+"name": "acolyte",
+"languages": 2,
+"starting_equipment": "clothes-common pouch",
+"equipment_options": "holy symbols",
+"proficiencies": "insight religion",
+"feature": "Shelter of the Faithful
+As an acolyte, you command the respect of those who share your faith, 
+and you can perform the religious ceremonies of your deity. You and your 
+adventuring companions can expect to receive free healing and care at a temple, 
+shrine, or other established presence of your faith, though you must provide any 
+material components needed for spells. Those who share your religion will support 
+you (but only you) at a modest lifestyle. You might also have ties to a specific 
+temple dedicated to your chosen deity or pantheon, and you have a residence there. 
+This could be the temple where you used to serve, if you remain on good terms with 
+it, or a temple where you have found a new home. While near your temple, you can 
+call upon the priests for assistance, provided the assistance you ask for is not 
+hazardous and you remain in good standing with your temple."
+},
+{
+"name": "acolyte",
+"languages": 2,
+"starting_equipment": "clothes-common pouch",
+"equipment_options": "holy symbols",
+"proficiencies": "insight religion",
+"feature": "Shelter of the Faithful
+As an acolyte, you command the respect of those who share your faith, 
+and you can perform the religious ceremonies of your deity. You and your 
+adventuring companions can expect to receive free healing and care at a temple, 
+shrine, or other established presence of your faith, though you must provide any 
+material components needed for spells. Those who share your religion will support 
+you (but only you) at a modest lifestyle. You might also have ties to a specific 
+temple dedicated to your chosen deity or pantheon, and you have a residence there. 
+This could be the temple where you used to serve, if you remain on good terms with 
+it, or a temple where you have found a new home. While near your temple, you can 
+call upon the priests for assistance, provided the assistance you ask for is not 
+hazardous and you remain in good standing with your temple."
 }
+]

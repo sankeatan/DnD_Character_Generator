@@ -32,7 +32,7 @@ proficiencies: {
   allowNull: false,
 },
 feature: {
-  type: DataTypes.STRING,
+  type: DataTypes.TEXT,
   allowNull: false,
 }
 },
