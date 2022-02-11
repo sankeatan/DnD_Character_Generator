@@ -22,13 +22,15 @@ router.get('/', async (req, res) => {
   });
 });
 
-router.get('/:id', async (req, res) => {
-  await axios.get(`https://www.dnd5eapi.co/api/classes/${req.params.id}`)
-.then(function (response) {
+router.get('/:class', async (req, res) => {
+  const apiClassCall = `https://www.dnd5eapi.co/api/classes/${req.params.class}`;
+  console.log(apiClassCall);
+  await axios.get(apiClassCall) 
+  .then(function (response) {
   // handle success
-  console.log(response.data.results);
-  res.json(response.data.results);
-  const classes = response.data.results;
+  console.log(response.data);
+  res.json(response.data);
+  const classes = response.data;
   return classes;
   
 })
