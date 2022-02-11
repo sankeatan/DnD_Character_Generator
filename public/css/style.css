@@ -1,6 +1,11 @@
+
 header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
+
+/* body {
+  background-color: black;
+} */
 
 .no-button {
   background: none;
@@ -22,3 +27,41 @@ header, .project:not(:last-child) {
   font-weight: bold;
   margin-left: -5px;
 }
+
+#main-head {
+  font-size:  60px;
+  /* margin-right: 50%; */
+}
+
+/* .login-div{
+  display: flex;
+  justify-content: end;
+} */
+
+.button-custom{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.more-info-null{
+  visibility: hidden;
+}
+
+@media screen and (max-width: 992px){
+  .more-info-null {
+      display: none;
+  }
+}
+@media screen and (max-width: 992px){
+  .button-custom {
+      display: flex;
+      flex-direction: column;
+  }
+}
+@media screen and (min-width: 1500px){
+  .button-custom {
+      margin: auto;
+      
+  }
+}
+
