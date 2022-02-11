@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     }
   } else {
     try{
-      res.render('homepage');
+      res.render({layout: "landingPage"});
     } catch (err) {
       res.status(500).json(err);
     }
@@ -49,6 +49,14 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
+  try {
+    res.render('signUpForm', {layout: "landingPage"});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/home', (req, res) => {
   try {
     res.render('signUpForm', {layout: "landingPage"});
   } catch (err) {
