@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
     });
   });
 
+
 router.get('/:name', async (req, res) => {
 
   await axios.get(`https://www.dnd5eapi.co/api/${req.params.id}`)
@@ -45,3 +46,4 @@ router.get('/:name', async (req, res) => {
 
 
 module.exports = router;
+

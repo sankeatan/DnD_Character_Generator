@@ -3,13 +3,13 @@ const axios = require('axios');
 
 router.get('/', async (req, res) => {
 
-    await axios.get('https://www.dnd5eapi.co/api/equipment')
+    await axios.get('https://www.dnd5eapi.co/api/alignment')
     .then(function (response) {
       // handle success
       console.log(response.data.results);
       res.json(response.data.results);
-      const equipment = response.data.results;
-      return equipment;
+      const alignment = response.data.results;
+      return alignment;
       
     })
   
@@ -22,4 +22,4 @@ router.get('/', async (req, res) => {
     });
   });
 
-module.exports = router;
+  module.exports = router;
