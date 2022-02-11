@@ -30,14 +30,12 @@ header, .project:not(:last-child) {
 
 #main-head {
   font-size:  60px;
-  /* margin-right: 50%; */
 }
 
-/* .login-div{
-  display: flex;
-  justify-content: end;
-} */
-
+#see-profile-button {
+ background-color: rgb(133, 112, 85) ;
+ border-color: black;
+}
 .button-custom{
   display: flex;
   flex-wrap: wrap;
