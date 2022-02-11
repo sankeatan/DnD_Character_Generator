@@ -22,6 +22,10 @@ Character.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    profile: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     description: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -43,9 +47,13 @@ Character.init(
       type: DataTypes.STRING,
       allowNull: true
     },
-    background: {
-      type: DataTypes.STRING,
-      allowNull: false
+    background_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'background',
+        key: 'id',
+      },
     }
     
   },
