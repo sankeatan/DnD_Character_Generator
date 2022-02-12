@@ -1,0 +1,165 @@
+header, .project:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+
+.no-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #1b89bc;
+    text-decoration: none;
+    font-size: 100%;
+}
+
+.no-button:hover {
+    color: #065b83;
+    text-decoration: underline;
+}
+
+#main-head {
+    font-size: 60px;
+    /* margin-right: 50%; */
+}
+
+header{
+    background-color: rgba(0, 0, 0, 0.911);
+    border-color: red;
+    border-width: 2px;
+}
+
+body{
+    background-color: rgba(0, 0, 0, 0.61);
+}
+
+.more-info-null{
+    visibility: hidden;
+}
+
+.header-custom{
+    background-color: rgba(0, 0, 0, 0.788);
+}
+
+.button-custom{
+    padding-bottom: 5px;
+}
+
+.btn-secondary{
+    background-color: inherit;
+    border-width: 0px;
+}
+
+.btn-secondary:hover{
+    background-color: inherit;
+    border-width: 0px;
+}
+
+.btn-warning.active, .btn-warning:active, .open > .dropdown-toggle.btn-warning {
+    background-color:inherit!important;
+    border-color:inherit!important;
+}
+
+.footer-custom{
+    background-image: url(./images/footer-background.png);
+}
+
+.content-row{
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        margin-left: 10px;
+        margin-top: 10px;
+}
+
+.card-custom{
+    background-color: tan;
+    max-height: 540px;
+}
+
+.navbar-custom{
+    display: flex;
+    justify-content: center!important;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: tan;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    display: flex;
+    justify-content: center!important;
+}
+
+.nav-item {
+    font-weight: bold;
+}
+
+.card-title-custom{
+    padding-left: 10px!important;
+}
+
+.stats{
+    max-height: 540px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+
+.null{
+    visibility: hidden;
+}
+
+.form-area{
+    max-height: 900px;
+    overflow-y: scroll;
+    background-color: tan;
+    margin-right: 20px;
+    margin-bottom: 100px;
+}
+
+.card-description-custom{
+    max-height: 540px;
+    overflow-y: scroll;
+    background-color: tan;
+    scrollbar-color: tan black;
+}
+
+.choices{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.911);
+    color: white;
+    border-style: solid;
+    border-color:red;
+    border-width: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius:25px;
+}
+
+.footer-wrap{
+    position:fixed;
+    bottom:0;
+    width: 100%;
+    height: 5em;
+}
+
+footer{
+    background-color: black;
+}
+
+.form-custom{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-list{
+    margin-left: 50px;
+    width: 400px;
+}
