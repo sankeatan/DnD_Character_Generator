@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class FantasyName extends Model {}
 
-Character.init(
+FantasyName.init(
   {
     id: {
       type: DataTypes.INTEGER,

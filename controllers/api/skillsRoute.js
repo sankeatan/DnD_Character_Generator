@@ -23,9 +23,9 @@ router.get('/', async (req, res) => {
   });
 
 
-router.get('/:name', async (req, res) => {
+router.get('/:skill', async (req, res) => {
 
-  await axios.get(`https://www.dnd5eapi.co/api/${req.params.id}`)
+  await axios.get(`https://www.dnd5eapi.co/api/${req.params.skill}`)
   .then(function (response) {
     // handle success
     console.log(response.data.results);

@@ -1,10 +1,9 @@
 const AbilityScores = require('./AbilityScores');
-const Character = require('./Character');
-const Alignment = require('./Alignment');
-const Language = require('./Language');
+const Character = require('../Character');
 const Proficiency = require('./Proficiency');
 const Skills = require('./Skills');
 const Equipment = require('./Equipment');
+const Background = require('../background-api/Background');
 
 Character.hasOne(AbilityScores, {
   foreignKey: 'character_id',
@@ -12,24 +11,6 @@ Character.hasOne(AbilityScores, {
 });
 
 AbilityScores.belongsTo(Character, {
-  foreignKey: 'character_id'
-});
-
-Character.hasOne(Alignment, {
-  foreignKey: 'character_id',
-  onDelete: 'CASCADE'
-});
-
-Alignment.belongsTo(Character, {
-  foreignKey: 'character_id'
-});
-
-Character.hasMany(Language, {
-  foreignKey: 'character_id',
-  onDelete: 'CASCADE'
-});
-
-Language.belongsTo(Character, {
   foreignKey: 'character_id'
 });
 
@@ -58,6 +39,11 @@ Character.hasMany(Equipment, {
 
 Equipment.belongsTo(Character, {
   foreignKey: 'character_id'
+});
+
+Character.hasOne(Background, {
+  foreignKey: 'character_id',
+  onDelete: 'CASCADE'
 });
 
 

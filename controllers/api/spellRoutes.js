@@ -1,15 +1,15 @@
 const router = require('express').Router();
 const axios = require('axios');
 
-router.get('/', async (req, res) => {
+router.get('/:spell', async (req, res) => {
 
-    await axios.get('https://www.dnd5eapi.co/api/spells')
+    await axios.get(`https://www.dnd5eapi.co/api/spells/${req.params.spell}`)
     .then(function (response) {
       // handle success
-      console.log(response.data.results);
-      res.json(response.data.results);
-      const spells = response.data.results;
-      return spells;
+      console.log(response.data);
+      res.json(response.data);
+      const equipment = response.data.results;
+      return equipment;
       
     })
   
@@ -22,4 +22,5 @@ router.get('/', async (req, res) => {
     });
   });
 
-  module.exports = router;
+
+module.exports = router;
