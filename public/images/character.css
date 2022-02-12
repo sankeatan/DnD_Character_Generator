@@ -83,7 +83,7 @@ body{
     justify-content: center!important;
     margin-top: 5px;
     margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 20px;
     background-color: tan;
 }
 
@@ -98,6 +98,7 @@ body{
 
 .card-title-custom{
     padding-left: 10px!important;
+
 }
 
 .stats{
@@ -165,3 +166,4 @@ footer{
     margin-left: 50px;
     width: 400px;
 }
+
