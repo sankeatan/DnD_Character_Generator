@@ -64,4 +64,12 @@ router.get('/home', (req, res) => {
   }
 });
 
+router.get('/characterBuilder', (req, res) => {
+  try {
+    res.render('characterSheet', {layout: 'characterBuilder'});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
