@@ -114,11 +114,13 @@ body{
 }
 
 .form-area{
+    min-height: 700px;
     max-height: 900px;
     overflow-y: scroll;
     background-color: tan;
     margin-right: 20px;
     margin-bottom: 100px;
+    border-radius: .25rem;
 }
 
 .card-description-custom{
