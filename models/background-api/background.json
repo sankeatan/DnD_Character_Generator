@@ -2,10 +2,12 @@
 {
 "name": "acolyte",
 "languages": 2,
-"starting_equipment": "clothes-common pouch",
-"equipment_options": "holy symbols",
-"proficiencies": "insight religion",
-"feature": "Shelter of the Faithful
+"starting_equipment": "clothes-common pouch holy-symbol 5-sticks-of-incense",
+"starting_money": "15gp",
+"equipment_options": "prayer-book prayer-wheel,",
+"skill_proficiencies": "insight religion",
+"tool_proficiencies": null,
+"feature": "Shelter of the Faithful:
 As an acolyte, you command the respect of those who share your faith, 
 and you can perform the religious ceremonies of your deity. You and your 
 adventuring companions can expect to receive free healing and care at a temple, 
@@ -19,22 +21,17 @@ call upon the priests for assistance, provided the assistance you ask for is not
 hazardous and you remain in good standing with your temple."
 },
 {
-"name": "acolyte",
-"languages": 2,
-"starting_equipment": "clothes-common pouch",
-"equipment_options": "holy symbols",
-"proficiencies": "insight religion",
-"feature": "Shelter of the Faithful
-As an acolyte, you command the respect of those who share your faith, 
-and you can perform the religious ceremonies of your deity. You and your 
-adventuring companions can expect to receive free healing and care at a temple, 
-shrine, or other established presence of your faith, though you must provide any 
-material components needed for spells. Those who share your religion will support 
-you (but only you) at a modest lifestyle. You might also have ties to a specific 
-temple dedicated to your chosen deity or pantheon, and you have a residence there. 
-This could be the temple where you used to serve, if you remain on good terms with 
-it, or a temple where you have found a new home. While near your temple, you can 
-call upon the priests for assistance, provided the assistance you ask for is not 
-hazardous and you remain in good standing with your temple."
+"name": "urchin",
+"languages": 0,
+"starting_equipment": "small-knife city-map mouse family-token clothes-common pouch",
+"starting_money": "10gp",
+"equipment_options": null,
+"skill_proficiencies": "sleight-of-hand stealth",
+"tool_proficiencies": "disguise-kit thieves-tools",
+"feature": "City Secrets:
+You grew up in the streets, you have spent your life from childhood to your adulthood in 
+the city and you’re aware of every inch of the city. You know the ways and secret passages 
+and patterns within the boundaries of the city and outside its boundaries. With your 
+friends along your side, you can travel in the city as fast as lightning."
 }
 ]
