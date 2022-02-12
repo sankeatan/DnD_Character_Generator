@@ -114,6 +114,7 @@ body{
 }
 
 .form-area{
+    min-height: 700px;
     max-height: 900px;
     overflow-y: scroll;
     background-color: tan;
