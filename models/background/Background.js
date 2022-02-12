@@ -17,19 +17,27 @@ name: {
     },
 languages: {
   type: DataTypes.STRING,
-  allowNull: false,
+  allowNull: true,
 },
 starting_equipment: {
   type: DataTypes.STRING,
   allowNull: false,
 },
+starting_money: {
+  type: DataTypes.STRING,
+  allowNull: true,
+},
 equipment_options: {
+  type: DataTypes.STRING,
+  allowNull: true,
+},
+skill_proficiencies: {
   type: DataTypes.STRING,
   allowNull: false,
 },
-proficiencies: {
+tool_proficiencies: {
   type: DataTypes.STRING,
-  allowNull: false,
+  allowNull: true,
 },
 feature: {
   type: DataTypes.TEXT,
