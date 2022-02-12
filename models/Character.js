@@ -22,12 +22,12 @@ Character.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    profile: {
+    profile_pic: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     lvl: {
@@ -47,13 +47,17 @@ Character.init(
       type: DataTypes.STRING,
       allowNull: true
     },
-    background_id: {
-      type: DataTypes.INTEGER,
+    alignment: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    languages: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    background: {
+      type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: 'background',
-        key: 'id',
-      },
     }
     
   },
