@@ -21,11 +21,10 @@ const seedDatabase = async () => {
     });
   }
 
-  for (const name of nameData) {
-    await FantasyName.create({
-      ...name,
-    });
-  }
+  const FantasyName = await FantasyName.bulkCreate(nameData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   process.exit(0);
 };
