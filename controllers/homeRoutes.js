@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     }
   } else {
     try{
-      res.render({layout: "landingPage"});
+      res.render('home');
     } catch (err) {
       res.status(500).json(err);
     }
@@ -56,9 +56,17 @@ router.get('/signup', (req, res) => {
   }
 });
 
-router.get('/home', (req, res) => {
+router.get('/home', withAuth, (req, res) => {
   try {
-    res.render('signUpForm', {layout: "landingPage"});
+    res.render('home');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/characterBuilder', (req, res) => {
+  try {
+    res.render('characterSheet', {layout: 'characterBuilder'});
   } catch (err) {
     res.status(500).json(err);
   }

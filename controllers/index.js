@@ -8,6 +8,6 @@ const fantasyNameRoutes = require('./fantasyNameRoutes')
 router.use('/', homeRoutes);
 router.use('/api', apiRoute);
 router.use('/character', characterRoutes);
-router.use('./fantasyName', fantasyNameRoutes);
+router.use('/fantasyName', fantasyNameRoutes);
 
 module.exports = router;

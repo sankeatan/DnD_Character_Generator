@@ -6,7 +6,7 @@
 //
 // Scripts
 // 
-document.querySelector('#loginButtonClick').addEventListener("click", loginButtonClick);
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
@@ -52,7 +52,3 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
-
-// loginButtonClick(){
-//     console.log("ass")
-// }
