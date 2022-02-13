@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Character } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -65,8 +65,18 @@ router.get('/home', withAuth, (req, res) => {
 });
 
 router.get('/characterBuilder', (req, res) => {
+  const characters = await Character.findAll({
+    where: {
+      user_id: req.session.user_id,
+    }
+  })
+  const character = characterData.get({ plain: true });
   try {
-    res.render('characterSheet', {layout: 'characterBuilder'});
+    res.render('characterSheet', {
+      layout: 'characterBuilder',
+      ...character,
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(500).json(err);
   }

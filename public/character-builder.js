@@ -7,3 +7,4 @@ function show(value) {
       dropdown.classList.toggle("active")
       console.log()
   }
+
