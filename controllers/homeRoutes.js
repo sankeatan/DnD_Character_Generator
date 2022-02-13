@@ -64,7 +64,7 @@ router.get('/home', withAuth, (req, res) => {
   }
 });
 
-router.get('/characterBuilder', (req, res) => {
+router.get('/characterBuilder', async (req, res) => {
   const characters = await Character.findAll({
     where: {
       user_id: req.session.user_id,
