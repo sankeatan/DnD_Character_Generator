@@ -56,7 +56,7 @@ router.get('/signup', (req, res) => {
   }
 });
 
-router.get('/home', (req, res) => {
+router.get('/home', withAuth, (req, res) => {
   try {
     res.render('home');
   } catch (err) {
