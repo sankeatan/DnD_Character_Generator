@@ -58,13 +58,29 @@ Character.init(
     background: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
-    
+    },
+    skills: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    proficiencies: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    equipment: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    feats: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize,
     timestamps: false,
     underscored: true,
+    freezeTableName: true,
     modelName: 'character',
   }
 );
