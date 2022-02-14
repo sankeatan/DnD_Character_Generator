@@ -1,10 +1,10 @@
 const signupFormHandler = async (event) => {
     event.preventDefault();
-  
+    // console.log("Unit")
     const name = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-    const confirmation = document.querySelector('#password-confirmation').value.trime();
+    const confirmation = document.querySelector('#password-confirmation').value.trim();
     if (password !== confirmation){
       alert("Passwords do not match");
     }
@@ -30,6 +30,6 @@ const signupFormHandler = async (event) => {
     }
   };
 
-  document
-  .querySelector('#signup-form')
-  .addEventListener('submit', signupFormHandler);
+  // signupFormHandler()
+document.querySelector('#submitButton').addEventListener('click', signupFormHandler);
+// document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);
