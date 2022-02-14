@@ -167,3 +167,36 @@ footer{
     width: 400px;
 }
 
+.option-Div{
+    display:flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#choice_options{
+    display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(6, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.option-Btn{
+    width: 500px;
+    height: 60px;
+    background-color: rgb(240, 223, 202);
+}
+
+.option-Img{
+    height: 40px;
+    width: 40px;
+}
+
+.button-area{
+    display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(6, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}

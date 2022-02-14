@@ -17,7 +17,7 @@ function show(value) {
 function classDropDown(){
     const classArray = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
     for (var i = 0; i<classArray.length; i++){
-        const imageUrl = `${classArray[i]}icon.png`
+        const imageUrl = `${classArray[i]}Icon.png`
         var optionDiv = $('<div>').addClass('option-Div')
         var optionImg = $('<img>').addClass('option-Img').attr("href", imageUrl)
         var option = $('<button>').val(classArray[i]).text(classArray[i]).addClass('option-Btn');
