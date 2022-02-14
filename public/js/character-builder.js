@@ -15,11 +15,12 @@ function show(value) {
   }
 
 function classDropDown(){
+    choices.empty()
     const classArray = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
     for (var i = 0; i<classArray.length; i++){
-        const imageUrl = `${classArray[i]}Icon.png`
+        const imageUrl = `./images/${classArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
-        var optionImg = $('<img>').addClass('option-Img').attr("href", imageUrl)
+        var optionImg = $('<img>').addClass('option-Img').attr("src", imageUrl)
         var option = $('<button>').val(classArray[i]).text(classArray[i]).addClass('option-Btn');
         optionImg.appendTo(optionDiv);
         option.appendTo(optionDiv);
@@ -28,11 +29,16 @@ function classDropDown(){
 }
 
 function raceDropDown(){
+    choices.empty();
     const raceArray = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Tiefling'];
-    label.text("Choose your Race:");
-    for (var i = 0; i<classArray.length; i++){
-        var option = $('<option>').val(raceArray[i]).text(raceArray[i]);
-        option.appendTo(select);
+    for (var i = 0; i<raceArray.length; i++){
+        const imageUrl = `public/images/${raceArray[i]}Icon.png`;
+        var optionDiv = $('<div>').addClass('option-Div')
+        var optionImg = $('<img>').addClass('option-Img').attr("href", imageUrl)
+        var option = $('<button>').val(raceArray[i]).text(raceArray[i]).addClass('option-Btn');
+        optionImg.appendTo(optionDiv);
+        option.appendTo(optionDiv);
+        optionDiv.appendTo(choices);
     }
 }
 
@@ -40,8 +46,8 @@ const statArray = [15, 14, 13, 12, 10, 8];
 
 classDropDown();
 
-//classOptions.addEventListener('click', classDropDown);
-//raceOptions.addEventListener('click', raceDropDown)
+classOptions.on('click', classDropDown);
+raceOptions.on('click', raceDropDown);
 
 
 
