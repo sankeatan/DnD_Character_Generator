@@ -36,7 +36,7 @@ function raceDropDown(){
         var optionDiv = $('<div>').addClass('option-Div')
         var optionImg = $('<img>').addClass('option-Img').attr("href", imageUrl)
         var option = $('<button>').val(raceArray[i]).text(raceArray[i]).addClass('option-Btn');
-        optionImg.appendTo(optionDiv);
+        optionImg.appendTo(option);
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
