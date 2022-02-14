@@ -60,4 +60,4 @@ const chBuilder = async (event) => {
   };
 
 document.querySelector('#ch-builder').addEventListener('click', chBuilder);
-document.querySelector('#sample-ch').addEventListener('click', sampleCh);
+//document.querySelector('#sample-ch').addEventListener('click', sampleCh);
