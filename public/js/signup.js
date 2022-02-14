@@ -9,11 +9,17 @@ const signupFormHandler = async (event) => {
       alert("Passwords do not match");
     }
     else if (name && email && password) {
+      console.log(name)
+      console.log(email)
+      console.log(password)
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ 
+          name: name, 
+          email: email, 
+          password: password }),
         headers: { 'Content-Type': 'application/json' },
-      });
+    });
   
       if (response.ok) {
         const loginResponse = await fetch('/api/users/login', {
@@ -30,6 +36,4 @@ const signupFormHandler = async (event) => {
     }
   };
 
-  // signupFormHandler()
 document.querySelector('#submitButton').addEventListener('click', signupFormHandler);
-// document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);
