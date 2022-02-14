@@ -56,3 +56,13 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
+
+const chBuilder = async (event) => {
+    event.preventDefault();
+  
+    document.location.replace('/characterBuilder');
+  };
+
+document.querySelector('#ch-builder').addEventListener('click', chBuilder);
+//document.querySelector('#sample-ch').addEventListener('click', sampleCh);
+

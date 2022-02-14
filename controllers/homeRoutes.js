@@ -65,21 +65,10 @@ router.get('/home', withAuth, (req, res) => {
 });
 
 router.get('/characterBuilder', async (req, res) => {
-  const characters = await Character.findAll({
-    where: {
-      user_id: req.session.user_id,
-    }
-  })
-  const character = characterData.get({ plain: true });
-  try {
     res.render('characterSheet', {
       layout: 'characterBuilder',
-      ...character,
       logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+        })
 });
 
 router.get('/home', async (req, res) => {
