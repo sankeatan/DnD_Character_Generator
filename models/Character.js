@@ -71,6 +71,10 @@ Character.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    feats: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize,
