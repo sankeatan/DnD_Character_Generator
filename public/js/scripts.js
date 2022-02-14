@@ -3,6 +3,9 @@
 * Copyright 2013-2021 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-grayscale/blob/master/LICENSE)
 */
+
+const session = require("express-session");
+
 //
 // Scripts
 // 
@@ -53,6 +56,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
+
 const chBuilder = async (event) => {
     event.preventDefault();
   
@@ -61,3 +65,4 @@ const chBuilder = async (event) => {
 
 document.querySelector('#ch-builder').addEventListener('click', chBuilder);
 //document.querySelector('#sample-ch').addEventListener('click', sampleCh);
+
