@@ -58,8 +58,19 @@ Character.init(
     background: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
-    
+    },
+    skills: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    proficiencies: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    equipment: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize,
