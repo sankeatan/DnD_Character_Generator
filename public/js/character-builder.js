@@ -22,7 +22,7 @@ function classDropDown(){
         var optionDiv = $('<div>').addClass('option-Div')
         var optionImg = $('<img>').addClass('option-Img').attr("src", imageUrl)
         var option = $('<button>').val(classArray[i]).text(classArray[i]).addClass('option-Btn');
-        optionImg.appendTo(optionDiv);
+        optionImg.appendTo(option);
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
