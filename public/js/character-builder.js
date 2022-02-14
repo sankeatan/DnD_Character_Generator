@@ -32,7 +32,7 @@ function raceDropDown(){
     choices.empty();
     const raceArray = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Tiefling'];
     for (var i = 0; i<raceArray.length; i++){
-        const imageUrl = `public/images/${raceArray[i]}Icon.png`;
+        const imageUrl = `./images/${raceArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
         var optionImg = $('<img>').addClass('option-Img').attr("href", imageUrl)
         var option = $('<button>').val(raceArray[i]).text(raceArray[i]).addClass('option-Btn');
