@@ -1,4 +1,4 @@
-const $ = require( "jquery" )( window );
+//const $ = require( "jquery" )( window );
 
 function displayLogin() {
 
