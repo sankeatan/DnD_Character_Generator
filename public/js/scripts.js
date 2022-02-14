@@ -3,6 +3,9 @@
 * Copyright 2013-2021 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-grayscale/blob/master/LICENSE)
 */
+
+const session = require("express-session");
+
 //
 // Scripts
 // 
@@ -52,3 +55,4 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+

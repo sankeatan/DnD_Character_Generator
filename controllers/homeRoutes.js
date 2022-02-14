@@ -82,4 +82,23 @@ router.get('/characterBuilder', async (req, res) => {
   }
 });
 
+router.get('/home', async (req, res) => {
+  const usernames = await User.findAll({
+    where: {
+      name: req.session.name,
+    }
+  })
+  console.log(usernames)
+  const username = characterData.get({ plain: true });
+  try {
+    res.render('characterSheet', {
+      layout: 'characterBuilder',
+      ...character,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
