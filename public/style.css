@@ -122,3 +122,11 @@ body{
     border-color:inherit!important;
 }
 
+footer{
+    background-image: url(./images/footer-background.png)
+}
+
+button{
+    background-color: inherit;
+    border-width: 0;
+}
