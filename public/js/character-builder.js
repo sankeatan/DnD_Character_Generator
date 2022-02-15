@@ -74,10 +74,6 @@ function raceDropDown() {
     selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> eb105aec2d041ed47c3f6c8f0a3349d31404b8e6
 function backgroundDropDown() {
     choices.empty();
     view = "background";
@@ -161,6 +157,7 @@ async function inputChoice() {
             classDisplay.text(newCharacter.class);
             const response = await fetch(`/api/classes/${(newCharacter.class).toLowerCase()}`, {
                 method: 'GET',
+                
             });
             break;
 
