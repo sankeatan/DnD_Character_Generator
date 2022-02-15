@@ -29,25 +29,23 @@ var newCharacter = {
 
 var view = '';
 
-var selection = choices.find(".option-Btn").on('click', inputChoice);
-
 
 function show(value) {
     document.querySelector(".text-box").value = value;
-  }
-  
-  let dropdown = document.querySelector(".dropdown")
-  dropdown.onclick = function() {
-      dropdown.classList.toggle("active")
-      console.log()
-  }
+}
 
-function classDropDown(){
+let dropdown = document.querySelector(".dropdown")
+dropdown.onclick = function () {
+    dropdown.classList.toggle("active")
+    console.log()
+}
+
+function classDropDown() {
     choices.empty()
     view = "class";
     console.log(view);
     const classArray = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
-    for (var i = 0; i<classArray.length; i++){
+    for (var i = 0; i < classArray.length; i++) {
         const imageUrl = `./images/${classArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
         var optionImg = $('<img>').addClass('option-Img').attr("src", imageUrl)
@@ -56,15 +54,14 @@ function classDropDown(){
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
-    selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
-function raceDropDown(){
+function raceDropDown() {
     choices.empty();
     view = "race";
     console.log(view);
     const raceArray = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Tiefling'];
-    for (var i = 0; i < raceArray.length; i++){
+    for (var i = 0; i < raceArray.length; i++) {
         const imageUrl = `./images/${raceArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
         var optionImg = $('<img>').addClass('option-Img').attr("src", imageUrl)
@@ -73,9 +70,12 @@ function raceDropDown(){
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
-    selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
+<<<<<<< HEAD
+function inputChoice() {
+    console.log('click');
+=======
 function backgroundDropDown(){
     choices.empty();
     view = "background";
@@ -128,18 +128,26 @@ function inventoryDropDown(){
 }
 
 function inputChoice(){
+>>>>>>> e8a7f22ad9818e2645cbf88aebb56d4905b1dca0
     switch (view) {
-        case "class": 
-        console.log($(this).val())
-        newCharacter.class = $(this).val();
-        raceDisplay.text(newCharacter.class);
+        case "class":
+            console.log($(this).val())
+            newCharacter.class = $(this).val();
+            raceDisplay.text(newCharacter.class);
             break;
+<<<<<<< HEAD
+        case "view":
+            console.log($(this).val())
+            newCharacter.race = $(this).val();
+            classDisplay.text(newCharacter.race);
+=======
         case "race": 
         console.log($(this).val())
         newCharacter.race = $(this).val();
         profileUrl = `./images/${newCharacter.race}${newCharacter.gender}Icon`
         profileImg.attr('src', profileUrl)
         classDisplay.text(newCharacter.race);
+>>>>>>> e8a7f22ad9818e2645cbf88aebb56d4905b1dca0
             break;
     }
 }
@@ -148,8 +156,11 @@ const statArray = [15, 14, 13, 12, 10, 8];
 
 raceDropDown();
 
+
 classOptions.on('click', classDropDown);
 raceOptions.on('click', raceDropDown);
+
+choices.find(".option-Btn").on('click', inputChoice);
 
 
 
