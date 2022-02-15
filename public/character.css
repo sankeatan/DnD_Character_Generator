@@ -261,24 +261,41 @@ grid-row-gap: 0px;
 .abs_input{
     margin-left: 10px;
     width: 50px;
+
 }
 
 .str-div{
+    font-weight: bold;
     margin-left: 22px;
 }
 
+.dex-div{
+    font-weight: bold;
+}
+
+.con-div{
+    font-weight: bold;
+}
+
 .int-div{
+    font-weight: bold;
     margin-left: 5px;
 }
 
 .wis-div{
+    font-weight: bold;
     margin-left: 6px;
 }
 
 .cha-div{
+    font-weight: bold;
     margin-left: 2px;
 }
 
 .stupidBtn {
     margin-left: 95%;
+}
+
+#name-input{
+    margin-left: 16px;
 }
