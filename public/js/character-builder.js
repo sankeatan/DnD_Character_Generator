@@ -149,7 +149,7 @@ function inputAbility(){
     $(".charisma").text(`CHA: ${cha}`)
 }
 
-async function languageDropDown() {
+/*async function languageDropDown() {
     choices.empty();
     if (newCharacter.background == '') {
         var optionDiv = $('<div>').addClass('option-Div').text('Choose a background to select languages!')
@@ -162,7 +162,7 @@ async function languageDropDown() {
         console.log(response);
         selection = choices.find(".option-Btn").on('click', inputChoice);
     }
-}
+}*/
 
 async function inputChoice() {
     switch (view) {
@@ -211,8 +211,19 @@ function saveName(){
 }
 
 function characterSave(){
+
+        const response = await fetch('/api/users/', {
+          method: 'POST',
+          body: JSON.stringify(newCharacter),
+          headers: { 'Content-Type': 'application/json' },
+        });
     
-}
+        if (response.ok) {
+          console.log(response.statusText);
+        } else {
+          alert(response.statusText);
+        }
+      }
 
 function displayUserCharacters(){
 
