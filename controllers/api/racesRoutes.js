@@ -24,12 +24,12 @@ router.get('/:race', async (req, res) => {
   await axios.get(apiClassCall)
   .then(function (response) {
       console.log(apiClassCall);
-      const classCall = RaceDesc.findOne({ where: { class: req.params.race } })
+      const raceCall = RaceDesc.findOne({ where: { class: req.params.race } })
       //classDescription = classCall.json();
-      console.log(classCall);
+      console.log(raceCall);
       const classes = response;
 
-      classCall.then(function (result) {
+      raceCall.then(function (result) {
         response.data.description = result.dataValues.description
 
         return response.data

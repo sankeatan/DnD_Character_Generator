@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 const classOptions = $('#class_option');
 const raceOptions = $('#race_option');
 const backgroundOptions = $('#background_option');
@@ -13,7 +11,6 @@ const femaleButton = $('#female');
 const saveCharacter = $('#save_build');
 const characterSheet = $('#character_sheet');
 
-const characterNameInput = $('#nameinput');
 
 const choices = $('#choice_options');
 
@@ -21,21 +18,22 @@ const raceDisplay = $('#race_title');
 const classDisplay = $('.class_title');
 const profileImg = $('#profile_img');
 const sideImg = $('#side_image');
-const sideText = $('#side_text');
+const sideText = $('#sidebar_text');
 
-var newCharacter = {
-    name: '',
-    race: 'Dragonborn',
-    class: '',
-    background: '',
-    ab_score: '',
-    lvl: 1,
-    languages: '',
-    proficiences: '',
-    feats: '',
-    inventory: '',
-    gender: 'Female',
-};
+const
+    newCharacter = {
+        name: '',
+        race: 'Dragonborn',
+        class: '',
+        background: '',
+        ab_score: '',
+        lvl: 1,
+        languages: '',
+        proficiences: '',
+        feats: '',
+        inventory: '',
+        gender: 'Female',
+    };
 
 var view = '';
 
@@ -73,7 +71,7 @@ function raceDropDown() {
     console.log(view);
     const raceArray = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-elf', 'Halfling', 'Half-orc', 'Human', 'Tiefling'];
     for (var i = 0; i < raceArray.length; i++) {
-        var raceName = raceArray[i].replace('-','');
+        var raceName = raceArray[i].replace('-', '');
         var optionDiv = $('<div>').addClass('option-Div')
         var option = $('<button>').val(raceName).text(raceArray[i]).addClass('option-Btn');
         option.appendTo(optionDiv);
@@ -96,7 +94,7 @@ function backgroundDropDown() {
     selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
-function abilityScoreDropDown(){
+function abilityScoreDropDown() {
     view = "abilities";
     choices.empty();
     var strDiv = $('<div>').addClass('option-Div str-div').attr('name', 'str').text('Strength: ');
@@ -127,13 +125,13 @@ function abilityScoreDropDown(){
     var subBtn = $('<button>Update Stats</button>').addClass('stupidBtn');
     subBtn.appendTo(btnDiv);
     btnDiv.appendTo(choices);
-    
+
     const stupid = $('.stupidBtn');
     stupid.on("click", inputAbility);
 }
 
 
-function inputAbility(){
+function inputAbility() {
     var str = $('.str').val();
     var dex = $('.dex').val();
     var con = $('.con').val();
@@ -166,23 +164,34 @@ function inputAbility(){
 
 async function inputChoice() {
     switch (view) {
-        case "class": 
-        console.log($(this).val())
-        newCharacter.class = $(this).val();
-        classDisplay.text(newCharacter.class);
-        var classImgURL = `/images/${newCharacter.class}ClassIcon.png`
-        sideImg.attr('src', classImgURL)
-        const response = await fetch(`/api/classes/${newCharacter.class}`, {
-            method: 'GET',
-          })
-        .then(console.log(response))
+        case "class":
+
+            console.log($(this).val())
+            newCharacter.class = $(this).val();
+            classDisplay.text(newCharacter.class);
+            var classImgURL = `/images/${newCharacter.class}ClassIcon.png`
+            sideImg.attr('src', classImgURL)
+            const response = await fetch(`/api/classes/${newCharacter.class}`, {
+                method: 'GET',
+            }).catch(function (error) {
+                // handle error
+                console.log(error);
+              }) .then(function (response){
+                  console.log("data", response.data);
+                return response.json()
+                
+              }).then(function(data) {
+                console.log(data);
+              })
+              
+
             break;
-        case "race": 
-        console.log($(this).val())
-        newCharacter.race = $(this).val();
-        profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
-        profileImg.attr('src', profileUrl)
-        raceDisplay.text($(this).text());
+        case "race":
+            console.log($(this).val())
+            newCharacter.race = $(this).val();
+            profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
+            profileImg.attr('src', profileUrl)
+            raceDisplay.text($(this).text());
             break;
         case "background":
             console.log($(this).val())
@@ -193,20 +202,20 @@ async function inputChoice() {
             newCharacter.languages += ` ${$(this).val()}`;
             break;
         case "abilities":
-        console.log($(this).val())
-        newCharacter.languages += ` ${$(this).val()}`;
-            break;
+            console.log($(this).val())
+            newCharacter.languages += ` ${$(this).val()}`;
+            break 
     }
 }
 
-function changeGender(){
-    newCharacter.gender=$(this).val();
+function changeGender() {
+    newCharacter.gender = $(this).val();
     var profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`;
     profileImg.attr('src', profileUrl)
 }
 
-function saveName(){
-    newCharacter.name=$(this).val();
+function saveName() {
+    newCharacter.name = $(this).val();
     console.log(newCharacter.name);
 }
 

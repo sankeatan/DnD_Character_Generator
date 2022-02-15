@@ -31,8 +31,13 @@ router.get('/:class', async (req, res) => {
       const classes = response;
 
       classCall.then(function (result) {
-        classes.data.description = result.dataValues.description
-        return classes.data;
+        response.data.description = result.dataValues.description
+        
+        classResponse = response.data;
+        
+        // console.log(classResponse)
+        
+        res.json(classResponse)
 
       })
     })
@@ -48,3 +53,5 @@ router.get('/:class', async (req, res) => {
 });
 
 module.exports = router;
+
+// module.exports = classResponse;
