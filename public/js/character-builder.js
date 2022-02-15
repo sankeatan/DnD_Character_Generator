@@ -219,7 +219,7 @@ function saveName() {
     console.log(newCharacter.name);
 }
 
-function characterSave(){
+async function characterSave(){
 
         const response = await fetch('/api/users/', {
           method: 'POST',
