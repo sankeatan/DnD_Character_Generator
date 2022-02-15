@@ -21,16 +21,19 @@ router.get('/', async (req, res) => {
 
 router.get('/:class', async (req, res) => {
   lowercaseSearch = (req.params.class).toLowerCase();
+  console.log(lowercaseSearch);
   const apiClassCall = `https://www.dnd5eapi.co/api/classes/${lowercaseSearch}`;
-  console.log(apiClassCall);
   await axios.get(apiClassCall) 
   .then(function (response) {
     const classCall = ClassDesc.findOne({ where: { class: req.params.class } })
-    //classDescription = classCall.json();
-    console.log(classCall);
-    const classes = response;
-
-  return classes;
+    //classDescription = classCall.desc
+    
+    return(response.data);
+    //console.log(classCall);
+    //const classes = response;
+   // classCall.then(function (result) {
+      //console.log(result)
+    //})
 })
 
 

@@ -9,16 +9,19 @@ const inventoryOptions = $('#inventory_option');
 const maleButton = $('#male');
 const femaleButton = $('#female');
 
+const characterNameInput = $('#nameinput');
+
 const choices = $('#choice_options');
 
 const raceDisplay = $('#race_title');
 const classDisplay = $('.class_title');
 const profileImg = $('#profile_img');
-const sideImg = $('#side_image')
+const sideImg = $('#side_image');
+const sideText = $('#side_text');
 
 var newCharacter = {
     name: '',
-    race: '',
+    race: 'Dragonborn',
     class: '',
     background: '',
     ab_score: '',
@@ -93,42 +96,53 @@ function abilityScoreDropDown(){
     view = "abilities";
     choices.empty();
     var strDiv = $('<div>').addClass('option-Div str-div').attr('name', 'str').text('Strength: ');
-    var strInput = $('<input>').attr('for', 'str').addClass('abs_input');
-    
+    var strInput = $('<input>').attr('for', 'str').addClass('abs_input str');
     strInput.appendTo(strDiv);
     strDiv.appendTo(choices);
-
     var dexDiv = $('<div>').addClass('option-Div dex-div').attr('name', 'dex').text('Dexterity: ');
-    var dexInput = $('<input>').attr('for', 'dex').addClass('abs_input');
+    var dexInput = $('<input>').attr('for', 'dex').addClass('abs_input dex');
     dexInput.appendTo(dexDiv);
     dexDiv.appendTo(choices);
     var conDiv = $('<div>').addClass('option-Div con-div').attr('name', 'con').text('Constitution: ');
-    var conInput = $('<input>').attr('for', 'con').addClass('abs_input');
+    var conInput = $('<input>').attr('for', 'con').addClass('abs_input con');
     conInput.appendTo(conDiv);
     conDiv.appendTo(choices);
     var wisDiv = $('<div>').addClass('option-Div wis-div').attr('name', 'wis').text('Wisdom: ');
-    var wisInput = $('<input>').attr('for', 'wis').addClass('abs_input');
+    var wisInput = $('<input>').attr('for', 'wis').addClass('abs_input wis');
     wisInput.appendTo(wisDiv);
     wisDiv.appendTo(choices);
     var intDiv = $('<div>').addClass('option-Div int-div').attr('name', 'int').text('Intelligence: ');
-    var intInput = $('<input>').attr('for', 'int').addClass('abs_input');
+    var intInput = $('<input>').attr('for', 'int').addClass('abs_input int');
     intInput.appendTo(intDiv);
     intDiv.appendTo(choices);
     var chaDiv = $('<div>').addClass('option-Div cha-div').attr('name', 'cha').text('Charisma: ');
-    var chaInput = $('<input>').attr('for', 'cha').addClass('abs_input');
+    var chaInput = $('<input>').attr('for', 'cha').addClass('abs_input cha');
     chaInput.appendTo(chaDiv);
     chaDiv.appendTo(choices);
     var btnDiv = $('<div>').addClass('submitAbility')
-    var subBtn = $('<button>Submit</button>').addClass('stupidBtn');
+    var subBtn = $('<button>Update Stats</button>').addClass('stupidBtn');
     subBtn.appendTo(btnDiv);
     btnDiv.appendTo(choices);
-    const stupid = document.getElementsByClassName("stupidBtn")
-    stupid.addEventListener("onclick", inputAbility());
+    
+    const stupid = $('.stupidBtn');
+    stupid.on("click", inputAbility);
 }
 
 
 function inputAbility(){
-    console.log("Beans")
+    var str = $('.str').val();
+    var dex = $('.dex').val();
+    var con = $('.con').val();
+    var int = $('.int').val();
+    var wis = $('.wis').val();
+    var cha = $('.cha').val();
+
+    $(".strength").text(`STR: ${str}`)
+    $(".dexterity").text(`DEX: ${dex}`)
+    $(".constitution").text(`CON: ${con}`)
+    $(".intelligence").text(`INT: ${int}`)
+    $(".wisdom").text(`WIS: ${wis}`)
+    $(".charisma").text(`CHA: ${cha}`)
 }
 
 async function languageDropDown() {
@@ -176,7 +190,8 @@ async function inputChoice() {
         const response = await fetch(`/api/classes/${newCharacter.class}`, {
             method: 'GET',
           });
-        console.log(response);
+        console.log(response.proficiencies);
+        console.log(response.starting_equipment_options);
             break;
         case "race": 
         console.log($(this).val())
@@ -206,6 +221,11 @@ function changeGender(){
     profileImg.attr('src', profileUrl)
 }
 
+function saveName(){
+    newCharacter.name=$(this).val();
+    console.log(newCharacter.name);
+}
+
 raceDropDown();
 
 
@@ -216,6 +236,7 @@ languageOptions.on('click', languageDropDown);
 abilityScoreOptions.on('click', abilityScoreDropDown);
 maleButton.on('click', changeGender);
 femaleButton.on('click', changeGender);
+characterNameInput.focusout(saveName);
 
 
 
