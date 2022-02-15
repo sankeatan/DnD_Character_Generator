@@ -34,6 +34,7 @@ const
         feats: '',
         inventory: '',
         gender: 'Female',
+        picture: '',
     };
 
 var view = '';
@@ -133,6 +134,7 @@ function abilityScoreDropDown() {
 
 
 function inputAbility() {
+    newCharacter.ab_score = `${str},${dex},${con},${int},${wis},${cha}`;
     var str = $('.str').val();
     var dex = $('.dex').val();
     var con = $('.con').val();
@@ -166,11 +168,11 @@ function inputAbility() {
 async function inputChoice() {
     switch (view) {
         case "class":
-
             console.log($(this).val())
             newCharacter.class = $(this).val();
             classDisplay.text(newCharacter.class);
             var classImgURL = `/images/${newCharacter.class}ClassIcon.png`
+            newCharacter.picture = classImgURL;
             sideImg.attr('src', classImgURL)
             const response = await fetch(`/api/classes/${newCharacter.class}`, {
                 method: 'GET',
@@ -203,10 +205,6 @@ async function inputChoice() {
             console.log($(this).val())
             newCharacter.languages += ` ${$(this).val()}`;
             break;
-        case "abilities":
-            console.log($(this).val())
-            newCharacter.languages += ` ${$(this).val()}`;
-            break 
     }
 }
 
@@ -223,7 +221,9 @@ function saveName() {
 
 
 async function characterSave(){
-        const response = await fetch('/api/users/', {
+        newCharacter.name = characterNameInput.val();
+
+        const response = await fetch('/api/character/', {
           method: 'POST',
           body: JSON.stringify(newCharacter),
           headers: { 'Content-Type': 'application/json' },
