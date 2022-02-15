@@ -45,10 +45,3 @@ router.get('/:class', async (req, res) => {
   // always executed
 });
 });
-
-
-
-
-
-
-module.exports = router;
