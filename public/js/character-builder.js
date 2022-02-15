@@ -1,21 +1,30 @@
 const classOptions = $('#class_option');
 const raceOptions = $('#race_option');
+const backgroundOptions = $('#background_option');
+const abilityScoreOptions = $('#abs_option');
+const languageOptions = $('#lang_option');
+const proficiencyOptions = $('#prof_option');
+const featureOptions = $('#feat_option');
+const inventoryOptions = $('#inventory_option');
 
 const choices = $('#choice_options');
 
 const raceDisplay = $('#race_title');
 const classDisplay = $('#class_title');
+const profileImg = $('profile_img');
 
 var newCharacter = {
     name: '',
     race: '',
     class: '',
+    background: '',
     ab_score: '',
     lvl: 1,
     languages: '',
     proficiences: '',
     feats: '',
     inventory: '',
+    gender: 'female',
 };
 
 var view = '';
@@ -55,26 +64,90 @@ function raceDropDown() {
     for (var i = 0; i < raceArray.length; i++) {
         const imageUrl = `./images/${raceArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
-        var optionImg = $('<img>').addClass('option-Img').attr("href", imageUrl)
-        var option = $('<button>').val(raceArray[i]).text(raceArray[i]).addClass('option-Btn');
+        var optionImg = $('<img>').addClass('option-Img').attr("src", imageUrl)
+        var option = $('<button>').val(raceArray[i].toLowerCase()).text(raceArray[i]).addClass('option-Btn');
         optionImg.appendTo(optionDiv);
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
 }
 
+<<<<<<< HEAD
 function inputChoice() {
     console.log('click');
+=======
+function backgroundDropDown(){
+    choices.empty();
+    view = "background";
+    console.log(view);
+    const backgroundArray = ['Acolyte', 'Urchin'];
+    for (var i = 0; i < backgroundArray.length; i++){
+        var optionDiv = $('<div>').addClass('option-Div')
+        var option = $('<button>').val(backgroundArray[i].toLowerCase()).text(backgroundArray[i]).addClass('option-Btn');
+        option.appendTo(optionDiv);
+        optionDiv.appendTo(choices);
+    }
+    selection = choices.find(".option-Btn").on('click', inputChoice);
+}
+
+function abilityScoreDropDown(){
+    choices.empty();
+    
+}
+
+async function languageDropDown(){
+    choices.empty();
+    if (newCharacter.background == ''){
+        var optionDiv = $('<div>').addClass('option-Div').text('Choose a background to select languages!')
+        optionDiv.appendTo(choices);
+    } else {
+    view = "language";
+    const response = await fetch(`/api/background/`, {
+        method: 'GET',
+      });
+    const backgroundArray = ['Acolyte', 'Urchin'];
+    for (var i = 0; i < backgroundArray.length; i++){
+        var optionDiv = $('<div>').addClass('option-Div')
+        var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
+        option.appendTo(optionDiv);
+        optionDiv.appendTo(choices);
+    }}
+    selection = choices.find(".option-Btn").on('click', inputChoice);
+}
+
+function proficiencyDropDown(){
+
+}
+
+function featureDropDown(){
+
+}
+
+function inventoryDropDown(){
+
+}
+
+function inputChoice(){
+>>>>>>> e8a7f22ad9818e2645cbf88aebb56d4905b1dca0
     switch (view) {
         case "class":
             console.log($(this).val())
             newCharacter.class = $(this).val();
             raceDisplay.text(newCharacter.class);
             break;
+<<<<<<< HEAD
         case "view":
             console.log($(this).val())
             newCharacter.race = $(this).val();
             classDisplay.text(newCharacter.race);
+=======
+        case "race": 
+        console.log($(this).val())
+        newCharacter.race = $(this).val();
+        profileUrl = `./images/${newCharacter.race}${newCharacter.gender}Icon`
+        profileImg.attr('src', profileUrl)
+        classDisplay.text(newCharacter.race);
+>>>>>>> e8a7f22ad9818e2645cbf88aebb56d4905b1dca0
             break;
     }
 }
