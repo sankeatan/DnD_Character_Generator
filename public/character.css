@@ -126,7 +126,7 @@ body{
 }
 
 .card-description-custom{
-    max-height: 540px;
+    max-height: 670px;
     overflow-y: scroll;
     background-color: tan;
     scrollbar-color: tan black;
