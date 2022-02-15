@@ -11,6 +11,7 @@ const equipmentRoute = require('./equipmentRoute');
 const equipmentCategoriesRoutes = require('./equipmentCategoriesRoutes.js');
 const languageRoute = require('./languageRoute');
 const proficiencyRoute = require('./proficiencyRoute');
+const racesRoutes = require('./racesRoutes');
 const skillsRoute = require('./skillsRoute');
 const spellRoutes = require('./spellRoutes');
 const userRoutes = require('./userRoutes');
@@ -26,6 +27,7 @@ router.use('/equipment', equipmentRoute);
 router.use('/equipment-categories', equipmentCategoriesRoutes);
 router.use('/languages', languageRoute);
 router.use('/proficiencies', proficiencyRoute);
+router.use('/races', racesRoutes);
 router.use('/skills', skillsRoute);
 router.use('/spell', spellRoutes);
 
