@@ -95,14 +95,14 @@ function abilityScoreDropDown(){
     
 }
 
-function languageDropDown(){
+async function languageDropDown(){
     choices.empty();
     if (newCharacter.background == ''){
         var optionDiv = $('<div>').addClass('option-Div').text('Choose a background to select languages!')
         optionDiv.appendTo(choices);
     } else {
     view = "language";
-    const response = await fetch(`/api/users/login`, {
+    const response = await fetch(`/api/background/`, {
         method: 'GET',
       });
     const backgroundArray = ['Acolyte', 'Urchin'];
@@ -137,8 +137,8 @@ function inputChoice(){
         case "race": 
         console.log($(this).val())
         newCharacter.race = $(this).val();
-        profileUrl = `${newCharacter.gender}${newCharacter.race}`
-        profileImg.attr('src', )
+        profileUrl = `./images/${newCharacter.race}${newCharacter.gender}Icon`
+        profileImg.attr('src', profileUrl)
         classDisplay.text(newCharacter.race);
             break;
     }
