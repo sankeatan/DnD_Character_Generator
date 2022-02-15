@@ -22,7 +22,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.post('/:character', withAuth, async (req, res) => {
+/*router.post('/:character', withAuth, async (req, res) => {/
   try {
     const character = await Character.findOne({ where: {
       id: `${req.params.character}`,
@@ -42,7 +42,7 @@ router.post('/:character', withAuth, async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-});
+});*/
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
