@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 const classOptions = $('#class_option');
 const raceOptions = $('#race_option');
 const backgroundOptions = $('#background_option');
@@ -190,8 +192,7 @@ async function inputChoice() {
         const response = await fetch(`/api/classes/${newCharacter.class}`, {
             method: 'GET',
           })
-        .then((response) => {
-        console.log(response)
+        .then(console.log(response))
             break;
         case "race": 
         console.log($(this).val())

@@ -29,9 +29,9 @@ router.get('/:class', async (req, res) => {
       const classes = response;
 
       classCall.then(function (result) {
-        response.data.description = result.dataValues.description
+        classes.data.description = result.dataValues.description
 
-        return response.data
+        return classes.data;
       })
     })
 
