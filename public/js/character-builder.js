@@ -11,7 +11,8 @@ const choices = $('#choice_options');
 
 const raceDisplay = $('#race_title');
 const classDisplay = $('.class_title');
-const profileImg = $('profile_img');
+const profileImg = $('#profile_img');
+const sideImg = $('#side_image')
 
 var newCharacter = {
     name: '',
@@ -154,6 +155,8 @@ async function inputChoice() {
         console.log($(this).val())
         newCharacter.class = $(this).val();
         classDisplay.text(newCharacter.class);
+        var classImgURL = `/images/${newCharacter.class}ClassIcon.png`
+        sideImg.attr('src', classImgURL)
         const response = await fetch(`/api/classes/${newCharacter.class}`, {
             method: 'GET',
           });
