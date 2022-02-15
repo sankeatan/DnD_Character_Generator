@@ -10,6 +10,7 @@ const maleButton = $('#male');
 const femaleButton = $('#female');
 const saveCharacter = $('#save_build');
 const characterSheet = $('#character_sheet');
+const characterNameInput = $('#name-input');
 
 
 const choices = $('#choice_options');
