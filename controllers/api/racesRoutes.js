@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const axios = require('axios');
-const ClassDesc = require('../../models/ClassDesc');
+const RaceDesc = require('../../models/RaceDesc');
 
 router.get('/', async (req, res) => {
-  await axios.get('https://www.dnd5eapi.co/api/classes')
+  await axios.get('https://www.dnd5eapi.co/api/races')
     .then(function (response) {
       // handle success
       console.log(response.data.results);
@@ -19,14 +19,14 @@ router.get('/', async (req, res) => {
     });
 });
 
-router.get('/:class', async (req, res) => {
-  lowercaseSearch = (req.params.class).toLowerCase();
+router.get('/:race', async (req, res) => {
+  lowercaseSearch = (req.params.race).toLowerCase();
   console.log(lowercaseSearch);
   const apiClassCall = `https://www.dnd5eapi.co/api/classes/${lowercaseSearch}`;
   await axios.get(apiClassCall)
   .then(function (response) {
       console.log(apiClassCall);
-      const classCall = ClassDesc.findOne({ where: { class: req.params.class } })
+      const classCall = RaceDesc.findOne({ where: { class: req.params.race } })
       //classDescription = classCall.json();
       console.log(classCall);
       const classes = response;
