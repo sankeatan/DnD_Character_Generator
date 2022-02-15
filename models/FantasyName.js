@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class FantasyName extends Model {}
+class FantasyName extends Model { }
 
 FantasyName.init(
   {
@@ -9,12 +9,13 @@ FantasyName.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
+      primaryKey: true,
     },
-     name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    },
+  },
   {
     sequelize,
     timestamps: false,

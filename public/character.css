@@ -17,6 +17,10 @@ header, .project:not(:last-child) {
     text-decoration: underline;
 }
 
+#name-input{
+    background-color: transparent;
+}
+
 #main-head {
     font-size: 60px;
     /* margin-right: 50%; */
