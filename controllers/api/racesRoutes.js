@@ -6,10 +6,8 @@ router.get('/', async (req, res) => {
   await axios.get('https://www.dnd5eapi.co/api/races')
     .then(function (response) {
       // handle success
-      console.log(response.data.results);
-      res.json(response.data.results);
-      const classes = response.data.results;
-      return classes;
+      const races = response.data.results;
+      return races;
 
     })
     .catch(function (error) {

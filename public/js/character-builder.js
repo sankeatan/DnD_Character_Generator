@@ -1,14 +1,15 @@
-
 const classOptions = $('#class_option');
 const raceOptions = $('#race_option');
 const backgroundOptions = $('#background_option');
 const abilityScoreOptions = $('#abs_option');
-const languageOptions = $('#lang_option');
-const proficiencyOptions = $('#prof_option');
-const featureOptions = $('#feat_option');
-const inventoryOptions = $('#inventory_option');
+//const languageOptions = $('#lang_option');
+//const proficiencyOptions = $('#prof_option');
+//const featureOptions = $('#feat_option');
+//const inventoryOptions = $('#inventory_option');
 const maleButton = $('#male');
 const femaleButton = $('#female');
+const saveCharacter = $('#save_build');
+const characterSheet = $('#character_sheet');
 
 
 const choices = $('#choice_options');
@@ -146,7 +147,7 @@ function inputAbility() {
     $(".charisma").text(`CHA: ${cha}`)
 }
 
-async function languageDropDown() {
+/*async function languageDropDown() {
     choices.empty();
     if (newCharacter.background == '') {
         var optionDiv = $('<div>').addClass('option-Div').text('Choose a background to select languages!')
@@ -157,28 +158,9 @@ async function languageDropDown() {
             method: 'GET',
         });
         console.log(response);
-        /*const backgroundArray = ['Acolyte', 'Urchin'];
-        for (var i = 0; i < backgroundArray.length; i++){
-            var optionDiv = $('<div>').addClass('option-Div')
-            var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
-            option.appendTo(optionDiv);
-            optionDiv.appendTo(choices);
-        }}*/
         selection = choices.find(".option-Btn").on('click', inputChoice);
     }
-}
-
-function proficiencyDropDown() {
-
-}
-
-function featureDropDown() {
-
-}
-
-function inventoryDropDown() {
-
-}
+}*/
 
 async function inputChoice() {
     switch (view) {
@@ -202,6 +184,7 @@ async function inputChoice() {
                 console.log(data);
               })
               
+
             break;
         case "race":
             console.log($(this).val())
@@ -236,17 +219,38 @@ function saveName() {
     console.log(newCharacter.name);
 }
 
+function characterSave(){
+
+        const response = await fetch('/api/users/', {
+          method: 'POST',
+          body: JSON.stringify(newCharacter),
+          headers: { 'Content-Type': 'application/json' },
+        });
+    
+        if (response.ok) {
+          console.log(response.statusText);
+        } else {
+          alert(response.statusText);
+        }
+      }
+
+function displayUserCharacters(){
+
+}
+
 raceDropDown();
 
 
 classOptions.on('click', classDropDown);
 raceOptions.on('click', raceDropDown);
 backgroundOptions.on('click', backgroundDropDown);
-languageOptions.on('click', languageDropDown);
 abilityScoreOptions.on('click', abilityScoreDropDown);
 maleButton.on('click', changeGender);
 femaleButton.on('click', changeGender);
-characterNameInput.focusout(saveName);
+characterNameInput.on('focusout', saveName);
+saveCharacter.on('click', characterSave);
+characterSheet.on('click', displayUserCharacters);
+
 
 
 
