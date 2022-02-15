@@ -1,9 +1,11 @@
 const sequelize = require('../config/connection');
-const { User, Character, FantasyName } = require('../models');
+const { User, Character, FantasyName, ClassDesc, RaceDesc } = require('../models');
 
 const userData = require('./userData.json');
 const charData = require('./charData.json');
 const nameData = require('./fantasyNames.json');
+const raceData = require('./raceData.json');
+const classData = require('./classData.json');
 
 
 const seedDatabase = async () => {
@@ -21,10 +23,35 @@ const seedDatabase = async () => {
     });
   }
 
-  const FantasyName = await FantasyName.bulkCreate(nameData, {
-    individualHooks: true,
-    returning: true,
-  });
+  for (const fantasyName of nameData) {
+    await FantasyName.create({
+      ...fantasyName,
+    });
+   }
+
+  // const fantasyName = await FantasyName.bulkCreate(nameData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
+
+  const raceDesc = await RaceDesc.bulkCreate(raceData);
+  
+  for (const raceDesc of raceData) {
+   await RaceDesc.bulkCreate({
+     ...raceDesc,
+   });
+  }
+
+  for (const classDesc of classData) {
+    await ClassDesc.create({
+      ...classDesc,
+    });
+   }
+
+  // const classDesc = await ClassDesc.bulkCreate(classData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
 
   process.exit(0);
 };
