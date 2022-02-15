@@ -225,3 +225,10 @@ grid-row-gap: 0px;
     width: 250px;
     margin-left: 19px;
 }
+
+.card-img-top2{
+    height: 200px;
+    width: 250px;
+    margin: 5px;
+    margin-left: 10px;
+}
