@@ -152,10 +152,11 @@ async function inputChoice() {
         console.log($(this).val())
         newCharacter.class = $(this).val();
         classDisplay.text(newCharacter.class);
-        newCharacter.class = (newCharacter.class).toLowerCase();
+        newCharacter.class = (newCharacter.class);
         const response = await fetch(`/api/classes/${newCharacter.class}`, {
             method: 'GET',
           });
+            console.log(response)
             break;
 
         case "race":
