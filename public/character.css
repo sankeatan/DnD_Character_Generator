@@ -219,3 +219,9 @@ grid-row-gap: 0px;
     background-color: inherit!important;
     border-color: inherit!important;
 }
+
+.card-img-top{
+    height: 200px;
+    width: 250px;
+    margin-left: 19px;
+}
