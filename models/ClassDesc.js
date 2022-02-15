@@ -25,7 +25,7 @@ ClassDesc.init(
     timestamps: false,
     underscored: true,
     freezeTableName: true,
-    modelName: 'classDesc',
+    modelName: 'classdesc',
   }
 );
 

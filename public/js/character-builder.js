@@ -94,8 +94,10 @@ function abilityScoreDropDown(){
     choices.empty();
     var strDiv = $('<div>').addClass('option-Div str-div').attr('name', 'str').text('Strength: ');
     var strInput = $('<input>').attr('for', 'str').addClass('abs_input');
+    
     strInput.appendTo(strDiv);
     strDiv.appendTo(choices);
+
     var dexDiv = $('<div>').addClass('option-Div dex-div').attr('name', 'dex').text('Dexterity: ');
     var dexInput = $('<input>').attr('for', 'dex').addClass('abs_input');
     dexInput.appendTo(dexDiv);
@@ -116,6 +118,17 @@ function abilityScoreDropDown(){
     var chaInput = $('<input>').attr('for', 'cha').addClass('abs_input');
     chaInput.appendTo(chaDiv);
     chaDiv.appendTo(choices);
+    var btnDiv = $('<div>').addClass('submitAbility')
+    var subBtn = $('<button>Submit</button>').addClass('stupidBtn');
+    subBtn.appendTo(btnDiv);
+    btnDiv.appendTo(choices);
+    const stupid = document.getElementsByClassName("stupidBtn")
+    stupid.addEventListener("onclick", inputAbility());
+}
+
+
+function inputAbility(){
+    console.log("Beans")
 }
 
 async function languageDropDown() {
