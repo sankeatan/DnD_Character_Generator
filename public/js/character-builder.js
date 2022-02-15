@@ -63,11 +63,8 @@ function raceDropDown() {
     console.log(view);
     const raceArray = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Tiefling'];
     for (var i = 0; i < raceArray.length; i++) {
-        const imageUrl = `./images/${raceArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
-        var optionImg = $('<img>').addClass('option-Img').attr("src", imageUrl)
         var option = $('<button>').val(raceArray[i]).text(raceArray[i]).addClass('option-Btn');
-        optionImg.appendTo(optionDiv);
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
@@ -155,7 +152,8 @@ async function inputChoice(){
         console.log($(this).val())
         newCharacter.class = $(this).val();
         classDisplay.text(newCharacter.class);
-        const response = await fetch(`/api/classes/${(newCharacter.class).toLowerCase()}`, {
+        newCharacter.class = (newCharacter.class).toLowerCase();
+        const response = await fetch(`/api/classes/${newCharacter.class}`, {
             method: 'GET',
           });
             break;
