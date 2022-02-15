@@ -24,12 +24,12 @@ header, .project:not(:last-child) {
 
 header{
     background-color: rgba(0, 0, 0, 0.911);
-    border-color: red;
+    border-color: rgb(56, 109, 33);
     border-width: 2px;
 }
 
 body{
-    background-color: rgba(0, 0, 0, 0.61);
+    background-color: rgb(18, 19, 19);
 }
 
 .more-info-null{
@@ -61,6 +61,7 @@ body{
 
 .footer-custom{
     background-image: url(./images/footer-background.png);
+    border-width: 0px;
 }
 
 .content-row{
@@ -137,7 +138,7 @@ body{
     background-color: rgba(0, 0, 0, 0.911);
     color: white;
     border-style: solid;
-    border-color:red;
+    border-color:rgb(68, 128, 42);
     border-width: 1px;
     margin-left: 10px;
     margin-right: 10px;
@@ -154,6 +155,7 @@ body{
 
 footer{
     background-color: black;
+    border-color:rgb(56, 109, 33)
 }
 
 .form-custom{
@@ -191,6 +193,8 @@ grid-row-gap: 0px;
 .option-Img{
     height: 40px;
     width: 40px;
+    margin-left: 20px;
+    float: left;
 }
 
 .button-area{
@@ -199,4 +203,14 @@ grid-template-columns: repeat(2, 1fr);
 grid-template-rows: repeat(6, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
+}
+
+.nav-link{
+    background-color: inherit;
+    border-width: 0px;
+    font-weight: bold;
+}
+
+.border-top {
+    border-color: rgb(29, 44, 23)!important;
 }
