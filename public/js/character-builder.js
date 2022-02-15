@@ -24,30 +24,28 @@ var newCharacter = {
     proficiences: '',
     feats: '',
     inventory: '',
-    gender: 'female',
+    gender: 'Female',
 };
 
 var view = '';
 
-var selection = choices.find(".option-Btn").on('click', inputChoice);
-
 
 function show(value) {
     document.querySelector(".text-box").value = value;
-  }
-  
-  let dropdown = document.querySelector(".dropdown")
-  dropdown.onclick = function() {
-      dropdown.classList.toggle("active")
-      console.log()
-  }
+}
 
-function classDropDown(){
+let dropdown = document.querySelector(".dropdown")
+dropdown.onclick = function () {
+    dropdown.classList.toggle("active")
+    console.log()
+}
+
+function classDropDown() {
     choices.empty()
     view = "class";
     console.log(view);
     const classArray = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
-    for (var i = 0; i<classArray.length; i++){
+    for (var i = 0; i < classArray.length; i++) {
         const imageUrl = `./images/${classArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
         var optionImg = $('<img>').addClass('option-Img').attr("src", imageUrl)
@@ -56,15 +54,14 @@ function classDropDown(){
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
-    selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
-function raceDropDown(){
+function raceDropDown() {
     choices.empty();
     view = "race";
     console.log(view);
     const raceArray = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Tiefling'];
-    for (var i = 0; i < raceArray.length; i++){
+    for (var i = 0; i < raceArray.length; i++) {
         const imageUrl = `./images/${raceArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
         var optionImg = $('<img>').addClass('option-Img').attr("src", imageUrl)
@@ -73,8 +70,8 @@ function raceDropDown(){
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
-    selection = choices.find(".option-Btn").on('click', inputChoice);
 }
+
 
 function backgroundDropDown(){
     choices.empty();
@@ -89,10 +86,20 @@ function backgroundDropDown(){
     }
     selection = choices.find(".option-Btn").on('click', inputChoice);
 }
-
 function abilityScoreDropDown(){
     choices.empty();
-    
+    var strDiv = $('<div>').addClass('option-Div').text('Strength: ');
+    strDiv.appendTo(choices);
+    var dexDiv = $('<div>').addClass('option-Div').text('Dexterity: ');
+    dexDiv.appendTo(choices);
+    var conDiv = $('<div>').addClass('option-Div').text('Constitution: ');
+    conDiv.appendTo(choices);
+    var wisDiv = $('<div>').addClass('option-Div').text('Wisdom: ');
+    wisDiv.appendTo(choices);
+    var intDiv = $('<div>').addClass('option-Div').text('Intelligence: ');
+    intDiv.appendTo(choices);
+    var chaDiv = $('<div>').addClass('option-Div').text('Charisma: ');
+    chaDiv.appendTo(choices);
 }
 
 async function languageDropDown(){
@@ -102,18 +109,19 @@ async function languageDropDown(){
         optionDiv.appendTo(choices);
     } else {
     view = "language";
-    const response = await fetch(`/api/background/`, {
+    const response = await fetch(`/api/background/${(newCharacter.background).toLowerCase()}`, {
         method: 'GET',
       });
-    const backgroundArray = ['Acolyte', 'Urchin'];
+    console.log(response);
+    /*const backgroundArray = ['Acolyte', 'Urchin'];
     for (var i = 0; i < backgroundArray.length; i++){
         var optionDiv = $('<div>').addClass('option-Div')
         var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
-    }}
+    }}*/
     selection = choices.find(".option-Btn").on('click', inputChoice);
-}
+}}
 
 function proficiencyDropDown(){
 
@@ -129,28 +137,37 @@ function inventoryDropDown(){
 
 function inputChoice(){
     switch (view) {
-        case "class": 
-        console.log($(this).val())
-        newCharacter.class = $(this).val();
-        raceDisplay.text(newCharacter.class);
+        case "class":
+            console.log($(this).val())
+            newCharacter.class = $(this).val();
+            raceDisplay.text(newCharacter.class);
             break;
+
         case "race": 
         console.log($(this).val())
         newCharacter.race = $(this).val();
-        profileUrl = `./images/${newCharacter.race}${newCharacter.gender}Icon`
+        profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
         profileImg.attr('src', profileUrl)
         classDisplay.text(newCharacter.race);
+            break;
+        case "background": 
+        console.log($(this).val())
+        newCharacter.background = $(this).val();
+            break;
+        case "language": 
+        console.log($(this).val())
+        newCharacter.languages += ` ${$(this).val()}`;
             break;
     }
 }
 
-const statArray = [15, 14, 13, 12, 10, 8];
-
 raceDropDown();
+
 
 classOptions.on('click', classDropDown);
 raceOptions.on('click', raceDropDown);
-
-
+backgroundOptions.on('click', backgroundDropDown);
+languageOptions.on('click', languageDropDown);
+abilityScoreOptions.on('click', abilityScoreDropDown);
 
 

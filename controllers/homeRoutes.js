@@ -77,7 +77,7 @@ router.get('/home', async (req, res) => {
       name: req.session.name,
     }
   })
-  console.log(usernames)
+
   const username = characterData.get({ plain: true });
   try {
     res.render('characterSheet', {
