@@ -1,5 +1,11 @@
 const classOptions = $('#class_option');
 const raceOptions = $('#race_option');
+const backgroundOptions = $('#background_option');
+const abilityScoreOptions = $('#abs_option');
+const languageOptions = $('#lang_option');
+const proficiencyOptions = $('#prof_option');
+const featureOptions = $('#feat_option');
+const inventoryOptions = $('#inventory_option');
 
 const choices = $('#choice_options');
 
@@ -65,6 +71,30 @@ function raceDropDown(){
         optionDiv.appendTo(choices);
     }
     selection = choices.find(".option-Btn").on('click', inputChoice);
+}
+
+function backgroundDropDown(){
+
+}
+
+function abilityScoreDropDown(){
+
+}
+
+function languageDropDown(){
+
+}
+
+function proficiencyDropDown(){
+
+}
+
+function featureDropDown(){
+
+}
+
+function inventoryDropDown(){
+    
 }
 
 function inputChoice(){
