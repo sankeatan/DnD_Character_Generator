@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 const classOptions = $('#class_option');
 const raceOptions = $('#race_option');
 const backgroundOptions = $('#background_option');
@@ -172,9 +174,8 @@ async function inputChoice() {
         sideImg.attr('src', classImgURL)
         const response = await fetch(`/api/classes/${newCharacter.class}`, {
             method: 'GET',
-          });
-        console.log(response.proficiencies);
-        console.log(response.starting_equipment_options);
+          })
+        .then(console.log(response))
             break;
         case "race": 
         console.log($(this).val())

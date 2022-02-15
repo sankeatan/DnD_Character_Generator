@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
       // handle success
       console.log(response.data);
       res.json(response.data);
+]
       const classes = response.data;
       return classes;
 
@@ -28,14 +29,11 @@ router.get('/:class', async (req, res) => {
       console.log(apiClassCall);
       const classCall = ClassDesc.findOne({ where: { class: req.params.class } })
       //classDescription = classCall.json();
-      console.log(classCall);
       const classes = response;
 
       classCall.then(function (result) {
-        response.data.description = result.dataValues.description
-
-
-        return response.data
+        classes.data.description = result.dataValues.description
+        return classes.data;
 
       })
     })
