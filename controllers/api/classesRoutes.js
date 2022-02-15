@@ -22,20 +22,6 @@ router.get('/', async (req, res) => {
 router.get('/:class', async (req, res) => {
   lowercaseSearch = (req.params.class).toLowerCase();
   const apiClassCall = `https://www.dnd5eapi.co/api/classes/${lowercaseSearch}`;
-<<<<<<< HEAD
-  // console.log(apiClassCall);
-  await axios.get(apiClassCall) 
-  .then(function (response) {
-  // handle success
-  // console.log(response.data);
-  res.json(response.data);
-  
-  
-  
-  const characterDescriptionCall = ClassDesc.findOne({ where: { class: req.params.class } })
-  console.log(characterDescriptionCall);
-  const classes = response.data;
-=======
   console.log(apiClassCall);
   await axios.get(apiClassCall) 
   .then(function (response) {
@@ -43,7 +29,6 @@ router.get('/:class', async (req, res) => {
     //classDescription = classCall.json();
     console.log(classCall);
     const classes = response;
->>>>>>> 582bed03db9877c0201775cf1b48d3a49444dd6f
 
   return classes;
 })
