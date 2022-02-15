@@ -16,7 +16,7 @@
             </li>
             <li class="nav-item">
                 <button class="nav-link" href="#" id="abs_option">Ability Scores</button>
-            </li>
+            <!--</li>
             <li class="nav-item">
                 <button class="nav-link" href="#" id="lang_option">Languages</button>
             </li>
@@ -28,7 +28,7 @@
             </li>
             <li class="nav-item">
                 <button class="nav-link" href="#" id="inventory_option">Inventory</button>
-            </li>
+            </li>-->
         </ul>
     </div>
 </nav>
@@ -49,14 +49,14 @@
         <hr>
         <div class="stats">
         <div class="health">
-        <h8>HP</h8>
+        <h8 id="hitpoints">HP: 0</h8>
         <p></p>
         </div>
-        <div class="null">
+        <div>
+        <h8>Background:</h8>
         </div>
-        <div class="ac">
-        <h8>AC</h8>
-        <p>?</p>
+        <div>
+        <p id="background">Acolyte</p>
         </div>
         <div class="null">
         </div>
@@ -100,8 +100,8 @@
         </div>
         </div>
             <div class="card-body">
-                <a href="#" class="card-link">Save Build</a>
-                <a href="#" class="card-link">Character Sheet</a>
+                <button class="card-link" id="save_build">Save Build</button>
+                <button class="card-link" id="character_sheet">Character Sheets</button>
             </div>
         </div>
     </div>
