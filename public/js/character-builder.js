@@ -90,18 +90,29 @@ function backgroundDropDown(){
 }
 function abilityScoreDropDown(){
     choices.empty();
-    var strDiv = $('<div>').addClass('option-Div').text('Strength: ');
+    var strDiv = $('<div>').addClass('option-Div').attr('name', 'str').text('Strength: ');
+    var strInput = $('<input>').attr('for', 'str').addClass('abs_input');
+    strInput.appendTo(strDiv);
     strDiv.appendTo(choices);
-    var strInput = $('<input>').attr('for', )
-    var dexDiv = $('<div>').addClass('option-Div').text('Dexterity: ');
+    var dexDiv = $('<div>').addClass('option-Div').attr('name', 'dex').text('Dexterity: ');
+    var dexInput = $('<input>').attr('for', 'dex').addClass('abs_input');
+    dexInput.appendTo(dexDiv);
     dexDiv.appendTo(choices);
-    var conDiv = $('<div>').addClass('option-Div').text('Constitution: ');
+    var conDiv = $('<div>').addClass('option-Div').attr('name', 'con').text('Constitution: ');
+    var conInput = $('<input>').attr('for', 'con').addClass('abs_input');
+    conInput.appendTo(conDiv);
     conDiv.appendTo(choices);
-    var wisDiv = $('<div>').addClass('option-Div').text('Wisdom: ');
+    var wisDiv = $('<div>').addClass('option-Div').attr('name', 'wis').text('Wisdom: ');
+    var wisInput = $('<input>').attr('for', 'wis').addClass('abs_input');
+    wisInput.appendTo(wisDiv);
     wisDiv.appendTo(choices);
-    var intDiv = $('<div>').addClass('option-Div').text('Intelligence: ');
+    var intDiv = $('<div>').addClass('option-Div').attr('name', 'int').text('Intelligence: ');
+    var intInput = $('<input>').attr('for', 'int').addClass('abs_input');
+    intInput.appendTo(intDiv);
     intDiv.appendTo(choices);
-    var chaDiv = $('<div>').addClass('option-Div').text('Charisma: ');
+    var chaDiv = $('<div>').addClass('option-Div').attr('name', 'cha').text('Charisma: ');
+    var chaInput = $('<input>').attr('for', 'cha').addClass('abs_input');
+    chaInput.appendTo(chaDiv);
     chaDiv.appendTo(choices);
 }
 
