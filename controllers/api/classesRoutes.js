@@ -35,6 +35,7 @@ router.get('/:class', async (req, res) => {
 
         // console.log(result.dataValues.description)
         console.log(response.data)
+        return response.data
         // return classes;
       })
     })

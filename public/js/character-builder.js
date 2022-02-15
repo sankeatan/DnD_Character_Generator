@@ -66,7 +66,7 @@ function raceDropDown() {
     console.log(view);
     const raceArray = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-elf', 'Halfling', 'Half-orc', 'Human', 'Tiefling'];
     for (var i = 0; i < raceArray.length; i++) {
-        var raceName = raceArray[i].replace('-','');
+        var raceName = raceArray[i].replace('-', '');
         var optionDiv = $('<div>').addClass('option-Div')
         var option = $('<button>').val(raceName).text(raceArray[i]).addClass('option-Btn');
         option.appendTo(optionDiv);
@@ -89,12 +89,12 @@ function backgroundDropDown() {
     selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
-function abilityScoreDropDown(){
+function abilityScoreDropDown() {
     view = "abilities";
     choices.empty();
     var strDiv = $('<div>').addClass('option-Div str-div').attr('name', 'str').text('Strength: ');
     var strInput = $('<input>').attr('for', 'str').addClass('abs_input');
-    
+
     strInput.appendTo(strDiv);
     strDiv.appendTo(choices);
 
@@ -127,7 +127,7 @@ function abilityScoreDropDown(){
 }
 
 
-function inputAbility(){
+function inputAbility() {
     console.log("Beans")
 }
 
@@ -167,23 +167,23 @@ function inventoryDropDown() {
 
 async function inputChoice() {
     switch (view) {
-        case "class": 
-        console.log($(this).val())
-        newCharacter.class = $(this).val();
-        classDisplay.text(newCharacter.class);
-        var classImgURL = `/images/${newCharacter.class}ClassIcon.png`
-        sideImg.attr('src', classImgURL)
-        const response = await fetch(`/api/classes/${newCharacter.class}`, {
-            method: 'GET',
-          });
-        console.log(response);
+        case "class":
+            console.log($(this).val())
+            newCharacter.class = $(this).val();
+            classDisplay.text(newCharacter.class);
+            var classImgURL = `/images/${newCharacter.class}ClassIcon.png`
+            sideImg.attr('src', classImgURL)
+            const response = await fetch(`/api/classes/${newCharacter.class}`, {
+                method: 'GET',
+            });
+            console.log(response);
             break;
-        case "race": 
-        console.log($(this).val())
-        newCharacter.race = $(this).val();
-        profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
-        profileImg.attr('src', profileUrl)
-        raceDisplay.text($(this).text());
+        case "race":
+            console.log($(this).val())
+            newCharacter.race = $(this).val();
+            profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
+            profileImg.attr('src', profileUrl)
+            raceDisplay.text($(this).text());
             break;
         case "background":
             console.log($(this).val())
@@ -194,14 +194,14 @@ async function inputChoice() {
             newCharacter.languages += ` ${$(this).val()}`;
             break;
         case "abilities":
-        console.log($(this).val())
-        newCharacter.languages += ` ${$(this).val()}`;
+            console.log($(this).val())
+            newCharacter.languages += ` ${$(this).val()}`;
             break;
     }
 }
 
-function changeGender(){
-    newCharacter.gender=$(this).val();
+function changeGender() {
+    newCharacter.gender = $(this).val();
     var profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`;
     profileImg.attr('src', profileUrl)
 }
