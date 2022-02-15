@@ -1,3 +1,4 @@
+
 const classOptions = $('#class_option');
 const raceOptions = $('#race_option');
 const backgroundOptions = $('#background_option');
@@ -193,9 +194,14 @@ async function inputChoice() {
             }).catch(function (error) {
                 // handle error
                 console.log(error);
-              }) .then
+              }) .then(function (response){
+                  console.log("data", response.data);
+                return response.json()
+                
+              }).then(function(data) {
+                console.log(data);
+              })
               
-            console.log(response.data);
             break;
         case "race":
             console.log($(this).val())
