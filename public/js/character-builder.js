@@ -76,12 +76,12 @@ function raceDropDown() {
 =======
 
 >>>>>>> eb105aec2d041ed47c3f6c8f0a3349d31404b8e6
-function backgroundDropDown(){
+function backgroundDropDown() {
     choices.empty();
     view = "background";
     console.log(view);
     const backgroundArray = ['Acolyte', 'Urchin'];
-    for (var i = 0; i < backgroundArray.length; i++){
+    for (var i = 0; i < backgroundArray.length; i++) {
         var optionDiv = $('<div>').addClass('option-Div')
         var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
         option.appendTo(optionDiv);
@@ -89,7 +89,7 @@ function backgroundDropDown(){
     }
     selection = choices.find(".option-Btn").on('click', inputChoice);
 }
-function abilityScoreDropDown(){
+function abilityScoreDropDown() {
     choices.empty();
     var strDiv = $('<div>').addClass('option-Div').text('Strength: ');
     strDiv.appendTo(choices);
@@ -105,75 +105,65 @@ function abilityScoreDropDown(){
     chaDiv.appendTo(choices);
 }
 
-async function languageDropDown(){
+async function languageDropDown() {
     choices.empty();
-    if (newCharacter.background == ''){
+    if (newCharacter.background == '') {
         var optionDiv = $('<div>').addClass('option-Div').text('Choose a background to select languages!')
         optionDiv.appendTo(choices);
     } else {
-    view = "language";
-    const response = await fetch(`/api/background/${(newCharacter.background).toLowerCase()}`, {
-        method: 'GET',
-      });
-    console.log(response);
-    /*const backgroundArray = ['Acolyte', 'Urchin'];
-    for (var i = 0; i < backgroundArray.length; i++){
-        var optionDiv = $('<div>').addClass('option-Div')
-        var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
-        option.appendTo(optionDiv);
-        optionDiv.appendTo(choices);
-    }}*/
-    selection = choices.find(".option-Btn").on('click', inputChoice);
-}}
-
-function proficiencyDropDown(){
-
-}
-
-function featureDropDown(){
-
-}
-
-function inventoryDropDown(){
-
-}
-
-<<<<<<< HEAD
-function inputChoice(){
-=======
-async function inputChoice(){
->>>>>>> eb105aec2d041ed47c3f6c8f0a3349d31404b8e6
-    switch (view) {
-        case "class": 
-        console.log($(this).val())
-        newCharacter.class = $(this).val();
-        classDisplay.text(newCharacter.class);
-        const response = await fetch(`/api/classes/${(newCharacter.class).toLowerCase()}`, {
+        view = "language";
+        const response = await fetch(`/api/background/${(newCharacter.background).toLowerCase()}`, {
             method: 'GET',
-          });
+        });
+        console.log(response);
+        /*const backgroundArray = ['Acolyte', 'Urchin'];
+        for (var i = 0; i < backgroundArray.length; i++){
+            var optionDiv = $('<div>').addClass('option-Div')
+            var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
+            option.appendTo(optionDiv);
+            optionDiv.appendTo(choices);
+        }}*/
+        selection = choices.find(".option-Btn").on('click', inputChoice);
+    }
+}
+
+function proficiencyDropDown() {
+
+}
+
+function featureDropDown() {
+
+}
+
+function inventoryDropDown() {
+
+}
+
+async function inputChoice() {
+    switch (view) {
+        case "class":
+            console.log($(this).val())
+            newCharacter.class = $(this).val();
+            classDisplay.text(newCharacter.class);
+            const response = await fetch(`/api/classes/${(newCharacter.class).toLowerCase()}`, {
+                method: 'GET',
+            });
             break;
-<<<<<<< HEAD
-        case "view":
+
+        case "race":
             console.log($(this).val())
             newCharacter.race = $(this).val();
-            classDisplay.text(newCharacter.race);
-=======
-
-        case "race": 
-        console.log($(this).val())
-        newCharacter.race = $(this).val();
-        profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
-        profileImg.attr('src', profileUrl)
-        raceDisplay.text(newCharacter.race);
+            profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
+            profileImg.attr('src', profileUrl)
+            raceDisplay.text(newCharacter.race);
             break;
-        case "background": 
-        console.log($(this).val())
-        newCharacter.background = $(this).val();
+        case "background":
+            console.log($(this).val())
+            newCharacter.background = $(this).val();
             break;
-        case "language": 
-        console.log($(this).val())
-        newCharacter.languages += ` ${$(this).val()}`;
->>>>>>> eb105aec2d041ed47c3f6c8f0a3349d31404b8e6
+        case "language":
+            console.log($(this).val())
+            newCharacter.languages += ` ${$(this).val()}`;
             break;
     }
 }
