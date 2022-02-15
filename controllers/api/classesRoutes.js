@@ -6,6 +6,9 @@ router.get('/', async (req, res) => {
   await axios.get('https://www.dnd5eapi.co/api/classes')
     .then(function (response) {
       // handle success
+      console.log(response.data);
+      res.json(response.data);
+]
       const classes = response.data;
       return classes;
 
@@ -30,8 +33,8 @@ router.get('/:class', async (req, res) => {
 
       classCall.then(function (result) {
         classes.data.description = result.dataValues.description
-
         return classes.data;
+
       })
     })
 
