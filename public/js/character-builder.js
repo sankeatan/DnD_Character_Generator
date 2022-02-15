@@ -63,21 +63,14 @@ function raceDropDown() {
     console.log(view);
     const raceArray = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Tiefling'];
     for (var i = 0; i < raceArray.length; i++) {
-        const imageUrl = `./images/${raceArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
-        var optionImg = $('<img>').addClass('option-Img').attr("src", imageUrl)
         var option = $('<button>').val(raceArray[i]).text(raceArray[i]).addClass('option-Btn');
-        optionImg.appendTo(optionDiv);
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
     selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> eb105aec2d041ed47c3f6c8f0a3349d31404b8e6
 function backgroundDropDown() {
     choices.empty();
     view = "background";
@@ -155,13 +148,14 @@ function inventoryDropDown() {
 
 async function inputChoice() {
     switch (view) {
-        case "class":
-            console.log($(this).val())
-            newCharacter.class = $(this).val();
-            classDisplay.text(newCharacter.class);
-            const response = await fetch(`/api/classes/${(newCharacter.class).toLowerCase()}`, {
-                method: 'GET',
-            });
+        case "class": 
+        console.log($(this).val())
+        newCharacter.class = $(this).val();
+        classDisplay.text(newCharacter.class);
+        newCharacter.class = (newCharacter.class).toLowerCase();
+        const response = await fetch(`/api/classes/${newCharacter.class}`, {
+            method: 'GET',
+          });
             break;
 
         case "race":
