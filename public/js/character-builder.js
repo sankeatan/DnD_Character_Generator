@@ -20,6 +20,8 @@ var newCharacter = {
 
 var view = '';
 
+var selection = choices.find(".option-Btn").on('click', inputChoice);
+
 
 function show(value) {
     document.querySelector(".text-box").value = value;
@@ -45,6 +47,7 @@ function classDropDown(){
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
+    selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
 function raceDropDown(){
@@ -61,19 +64,19 @@ function raceDropDown(){
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
+    selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
 function inputChoice(){
-    console.log('click');
     switch (view) {
         case "class": 
         console.log($(this).val())
-        newCharacter.class == $(this).val();
+        newCharacter.class = $(this).val();
         raceDisplay.text(newCharacter.class);
             break;
-        case "view": 
+        case "race": 
         console.log($(this).val())
-        newCharacter.race == $(this).val();
+        newCharacter.race = $(this).val();
         classDisplay.text(newCharacter.race);
             break;
     }
@@ -82,8 +85,6 @@ function inputChoice(){
 const statArray = [15, 14, 13, 12, 10, 8];
 
 raceDropDown();
-
-choices.find(".option-Btn").on('click', inputChoice);
 
 classOptions.on('click', classDropDown);
 raceOptions.on('click', raceDropDown);
