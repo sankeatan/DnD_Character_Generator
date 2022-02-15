@@ -1,3 +1,5 @@
+
+
 const sequelize = require('../config/connection');
 const { User, Character, FantasyName, ClassDesc, RaceDesc } = require('../models');
 
@@ -15,6 +17,8 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
+
+  let createdCharacters = await queryInterface.bulkInsert("Characters", charData, { returning: true });
 
   for (const character of charData) {
     await Character.create({
@@ -34,9 +38,15 @@ const seedDatabase = async () => {
   //   returning: true,
   // });
 
-  const raceDesc = await RaceDesc.bulkCreate(raceData);
+  const raceDesc = await RaceDesc.bulkCreate(raceData, {
+    returning: true,
+  });
+
+  const clssDesc = await ClassDesc.bulkCreate(classData, {
+    returning: true,
+  });
   
-  for (const raceDesc of raceData) {
+  /*for (const raceDesc of raceData) {
    await RaceDesc.bulkCreate({
      ...raceDesc,
    });
@@ -52,7 +62,7 @@ const seedDatabase = async () => {
   //   individualHooks: true,
   //   returning: true,
   // });
-
+*/
   process.exit(0);
 };
 
