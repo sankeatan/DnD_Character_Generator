@@ -76,7 +76,7 @@ body{
 
 .card-custom{
     background-color: tan;
-    max-height: 600px;
+    max-height: 670px;
 }
 
 .navbar-custom{
@@ -231,4 +231,30 @@ grid-row-gap: 0px;
     width: 250px;
     margin: 5px;
     margin-left: 10px;
+}
+
+.gender-wrapper1{
+    display: flex;
+    justify-content: center;
+}
+
+.gender-wrapper2{
+    display: flex;
+    justify-content: center;
+}
+
+
+#male{
+    width: 250px;
+    background-color: rgb(240, 223, 202);
+}
+
+#female{
+    width: 250px;
+    background-color: rgb(240, 223, 202);
+}
+
+.abs_input{
+    margin-left: 10px;
+    width: 50px;
 }
