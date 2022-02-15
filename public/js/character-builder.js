@@ -10,6 +10,7 @@ const maleButton = $('#male');
 const femaleButton = $('#female');
 const saveCharacter = $('#save_build');
 const characterSheet = $('#character_sheet');
+const characterNameInput = $('#name-input');
 
 
 const choices = $('#choice_options');
@@ -182,6 +183,7 @@ async function inputChoice() {
                 
               }).then(function(data) {
                 console.log(data);
+                sideText.text(data.description);
               })
               
 
@@ -219,8 +221,8 @@ function saveName() {
     console.log(newCharacter.name);
 }
 
-async function characterSave(){
 
+async function characterSave(){
         const response = await fetch('/api/users/', {
           method: 'POST',
           body: JSON.stringify(newCharacter),
