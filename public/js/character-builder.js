@@ -95,6 +95,7 @@ function abilityScoreDropDown() {
     choices.empty();
     var strDiv = $('<div>').addClass('option-Div').text('Strength: ');
     strDiv.appendTo(choices);
+    var strInput = $('<input>').attr('for', )
     var dexDiv = $('<div>').addClass('option-Div').text('Dexterity: ');
     dexDiv.appendTo(choices);
     var conDiv = $('<div>').addClass('option-Div').text('Constitution: ');
