@@ -22,6 +22,7 @@ var newCharacter = {
     proficiences: '',
     feats: '',
     inventory: '',
+    gender: '',
 };
 
 var view = '';
@@ -94,7 +95,7 @@ function featureDropDown(){
 }
 
 function inventoryDropDown(){
-    
+
 }
 
 function inputChoice(){
