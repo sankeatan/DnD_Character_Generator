@@ -258,3 +258,19 @@ grid-row-gap: 0px;
     margin-left: 10px;
     width: 50px;
 }
+
+.str-div{
+    margin-left: 22px;
+}
+
+.int-div{
+    margin-left: 5px;
+}
+
+.wis-div{
+    margin-left: 6px;
+}
+
+.cha-div{
+    margin-left: 2px;
+}
