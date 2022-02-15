@@ -72,10 +72,6 @@ function raceDropDown() {
     }
 }
 
-<<<<<<< HEAD
-function inputChoice() {
-    console.log('click');
-=======
 function backgroundDropDown(){
     choices.empty();
     view = "background";
@@ -128,26 +124,16 @@ function inventoryDropDown(){
 }
 
 function inputChoice(){
->>>>>>> e8a7f22ad9818e2645cbf88aebb56d4905b1dca0
     switch (view) {
         case "class":
             console.log($(this).val())
             newCharacter.class = $(this).val();
             raceDisplay.text(newCharacter.class);
             break;
-<<<<<<< HEAD
         case "view":
             console.log($(this).val())
             newCharacter.race = $(this).val();
             classDisplay.text(newCharacter.race);
-=======
-        case "race": 
-        console.log($(this).val())
-        newCharacter.race = $(this).val();
-        profileUrl = `./images/${newCharacter.race}${newCharacter.gender}Icon`
-        profileImg.attr('src', profileUrl)
-        classDisplay.text(newCharacter.race);
->>>>>>> e8a7f22ad9818e2645cbf88aebb56d4905b1dca0
             break;
     }
 }
