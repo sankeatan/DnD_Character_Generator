@@ -170,7 +170,7 @@ async function inputChoice() {
         newCharacter.race = $(this).val();
         profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
         profileImg.attr('src', profileUrl)
-        raceDisplay.text(newCharacter.race);
+        raceDisplay.text($(this).text());
             break;
         case "background":
             console.log($(this).val())
