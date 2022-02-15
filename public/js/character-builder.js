@@ -71,13 +71,12 @@ function raceDropDown() {
     selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
-
-function backgroundDropDown(){
+function backgroundDropDown() {
     choices.empty();
     view = "background";
     console.log(view);
     const backgroundArray = ['Acolyte', 'Urchin'];
-    for (var i = 0; i < backgroundArray.length; i++){
+    for (var i = 0; i < backgroundArray.length; i++) {
         var optionDiv = $('<div>').addClass('option-Div')
         var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
         option.appendTo(optionDiv);
@@ -115,40 +114,41 @@ function abilityScoreDropDown(){
     chaDiv.appendTo(choices);
 }
 
-async function languageDropDown(){
+async function languageDropDown() {
     choices.empty();
-    if (newCharacter.background == ''){
+    if (newCharacter.background == '') {
         var optionDiv = $('<div>').addClass('option-Div').text('Choose a background to select languages!')
         optionDiv.appendTo(choices);
     } else {
-    view = "language";
-    const response = await fetch(`/api/background/${(newCharacter.background).toLowerCase()}`, {
-        method: 'GET',
-      });
-    console.log(response);
-    /*const backgroundArray = ['Acolyte', 'Urchin'];
-    for (var i = 0; i < backgroundArray.length; i++){
-        var optionDiv = $('<div>').addClass('option-Div')
-        var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
-        option.appendTo(optionDiv);
-        optionDiv.appendTo(choices);
-    }}*/
-    selection = choices.find(".option-Btn").on('click', inputChoice);
-}}
+        view = "language";
+        const response = await fetch(`/api/background/${(newCharacter.background).toLowerCase()}`, {
+            method: 'GET',
+        });
+        console.log(response);
+        /*const backgroundArray = ['Acolyte', 'Urchin'];
+        for (var i = 0; i < backgroundArray.length; i++){
+            var optionDiv = $('<div>').addClass('option-Div')
+            var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
+            option.appendTo(optionDiv);
+            optionDiv.appendTo(choices);
+        }}*/
+        selection = choices.find(".option-Btn").on('click', inputChoice);
+    }
+}
 
-function proficiencyDropDown(){
+function proficiencyDropDown() {
 
 }
 
-function featureDropDown(){
+function featureDropDown() {
 
 }
 
-function inventoryDropDown(){
+function inventoryDropDown() {
 
 }
 
-async function inputChoice(){
+async function inputChoice() {
     switch (view) {
         case "class": 
         console.log($(this).val())
@@ -166,13 +166,13 @@ async function inputChoice(){
         profileImg.attr('src', profileUrl)
         raceDisplay.text(newCharacter.race);
             break;
-        case "background": 
-        console.log($(this).val())
-        newCharacter.background = $(this).val();
+        case "background":
+            console.log($(this).val())
+            newCharacter.background = $(this).val();
             break;
-        case "language": 
-        console.log($(this).val())
-        newCharacter.languages += ` ${$(this).val()}`;
+        case "language":
+            console.log($(this).val())
+            newCharacter.languages += ` ${$(this).val()}`;
             break;
         case "abilities":
         console.log($(this).val())

@@ -43,9 +43,4 @@ router.get('/:class', async (req, res) => {
 });
 });
 
-
-
-
-
-
 module.exports = router;

@@ -76,7 +76,7 @@ body{
 
 .card-custom{
     background-color: tan;
-    max-height: 540px;
+    max-height: 600px;
 }
 
 .navbar-custom{
@@ -218,4 +218,17 @@ grid-row-gap: 0px;
 .btn-check:focus+.btn-secondary, .btn-secondary:focus{
     background-color: inherit!important;
     border-color: inherit!important;
+}
+
+.card-img-top{
+    height: 200px;
+    width: 250px;
+    margin-left: 19px;
+}
+
+.card-img-top2{
+    height: 200px;
+    width: 250px;
+    margin: 5px;
+    margin-left: 10px;
 }
