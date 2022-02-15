@@ -64,10 +64,11 @@ function raceDropDown() {
     choices.empty();
     view = "race";
     console.log(view);
-    const raceArray = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Tiefling'];
+    const raceArray = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-elf', 'Halfling', 'Half-orc', 'Human', 'Tiefling'];
     for (var i = 0; i < raceArray.length; i++) {
+        var raceName = raceArray[i].replace('-','');
         var optionDiv = $('<div>').addClass('option-Div')
-        var option = $('<button>').val(raceArray[i]).text(raceArray[i]).addClass('option-Btn');
+        var option = $('<button>').val(raceName).text(raceArray[i]).addClass('option-Btn');
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
