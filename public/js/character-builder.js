@@ -4,10 +4,10 @@ const classOptions = $('#class_option');
 const raceOptions = $('#race_option');
 const backgroundOptions = $('#background_option');
 const abilityScoreOptions = $('#abs_option');
-const languageOptions = $('#lang_option');
-const proficiencyOptions = $('#prof_option');
-const featureOptions = $('#feat_option');
-const inventoryOptions = $('#inventory_option');
+//const languageOptions = $('#lang_option');
+//const proficiencyOptions = $('#prof_option');
+//const featureOptions = $('#feat_option');
+//const inventoryOptions = $('#inventory_option');
 const maleButton = $('#male');
 const femaleButton = $('#female');
 const saveCharacter = $('#save_build');
@@ -210,6 +210,14 @@ function saveName(){
     console.log(newCharacter.name);
 }
 
+function characterSave(){
+    
+}
+
+function displayUserCharacters(){
+
+}
+
 raceDropDown();
 
 
@@ -220,6 +228,9 @@ abilityScoreOptions.on('click', abilityScoreDropDown);
 maleButton.on('click', changeGender);
 femaleButton.on('click', changeGender);
 characterNameInput.on('focusout', saveName);
+saveCharacter.on('click', characterSave);
+characterSheet.on('click', displayUserCharacters);
+
 
 
 

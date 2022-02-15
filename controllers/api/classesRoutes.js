@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
       // handle success
       console.log(response.data);
       res.json(response.data);
-]
       const classes = response.data;
       return classes;
 

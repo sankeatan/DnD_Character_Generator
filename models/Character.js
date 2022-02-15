@@ -20,11 +20,11 @@ Character.init(
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     profile_pic: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     description: {
       type: DataTypes.TEXT,
@@ -32,16 +32,15 @@ Character.init(
     },
     lvl: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
+      allowNull: true,
     },
     race: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     class: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     subclass: {
       type: DataTypes.STRING,
@@ -57,23 +56,23 @@ Character.init(
     },
     background: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     skills: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     proficiencies: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     equipment: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     feats: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {
