@@ -299,3 +299,16 @@ grid-row-gap: 0px;
 #name-input{
     margin-left: 16px;
 }
+
+.card-body2{
+    align-items: center;
+    margin-top: 30px;
+}
+
+.card-link{
+    background-color:rgb(240, 223, 202)
+}
+
+.background-title{
+    margin-right: 5px;
+}
