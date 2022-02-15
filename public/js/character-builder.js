@@ -6,12 +6,15 @@ const languageOptions = $('#lang_option');
 const proficiencyOptions = $('#prof_option');
 const featureOptions = $('#feat_option');
 const inventoryOptions = $('#inventory_option');
+const maleButton = $('#male');
+const femaleButton = $('#female');
 
 const choices = $('#choice_options');
 
 const raceDisplay = $('#race_title');
-const classDisplay = $('#class_title');
-const profileImg = $('profile_img');
+const classDisplay = $('.class_title');
+const profileImg = $('#profile_img');
+const sideImg = $('#side_image')
 
 var newCharacter = {
     name: '',
@@ -84,7 +87,9 @@ function backgroundDropDown() {
     }
     selection = choices.find(".option-Btn").on('click', inputChoice);
 }
-function abilityScoreDropDown() {
+
+function abilityScoreDropDown(){
+    view = "abilities";
     choices.empty();
     var strDiv = $('<div>').addClass('option-Div').attr('name', 'str').text('Strength: ');
     var strInput = $('<input>').attr('for', 'str').addClass('abs_input');
@@ -152,19 +157,19 @@ async function inputChoice() {
         console.log($(this).val())
         newCharacter.class = $(this).val();
         classDisplay.text(newCharacter.class);
-        newCharacter.class = (newCharacter.class);
+        var classImgURL = `/images/${newCharacter.class}ClassIcon.png`
+        sideImg.attr('src', classImgURL)
         const response = await fetch(`/api/classes/${newCharacter.class}`, {
             method: 'GET',
           });
-            console.log(response)
+        console.log(response);
             break;
-
-        case "race":
-            console.log($(this).val())
-            newCharacter.race = $(this).val();
-            profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
-            profileImg.attr('src', profileUrl)
-            raceDisplay.text(newCharacter.race);
+        case "race": 
+        console.log($(this).val())
+        newCharacter.race = $(this).val();
+        profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
+        profileImg.attr('src', profileUrl)
+        raceDisplay.text(newCharacter.race);
             break;
         case "background":
             console.log($(this).val())
@@ -174,7 +179,17 @@ async function inputChoice() {
             console.log($(this).val())
             newCharacter.languages += ` ${$(this).val()}`;
             break;
+        case "abilities":
+        console.log($(this).val())
+        newCharacter.languages += ` ${$(this).val()}`;
+            break;
     }
+}
+
+function changeGender(){
+    newCharacter.gender=$(this).val();
+    var profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`;
+    profileImg.attr('src', profileUrl)
 }
 
 raceDropDown();
@@ -185,5 +200,8 @@ raceOptions.on('click', raceDropDown);
 backgroundOptions.on('click', backgroundDropDown);
 languageOptions.on('click', languageDropDown);
 abilityScoreOptions.on('click', abilityScoreDropDown);
+maleButton.on('click', changeGender);
+femaleButton.on('click', changeGender);
+
 
 
