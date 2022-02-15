@@ -1,9 +1,13 @@
+
+
 const sequelize = require('../config/connection');
-const { User, Character, FantasyName } = require('../models');
+const { User, Character, FantasyName, ClassDesc, RaceDesc } = require('../models');
 
 const userData = require('./userData.json');
 const charData = require('./charData.json');
 const nameData = require('./fantasyNames.json');
+const raceData = require('./raceData.json');
+const classData = require('./classData.json');
 
 
 const seedDatabase = async () => {
@@ -14,6 +18,8 @@ const seedDatabase = async () => {
     returning: true,
   });
 
+  let createdCharacters = await queryInterface.bulkInsert("Characters", charData, { returning: true });
+
   for (const character of charData) {
     await Character.create({
       ...character,
@@ -21,11 +27,42 @@ const seedDatabase = async () => {
     });
   }
 
-  const FantasyName = await FantasyName.bulkCreate(nameData, {
-    individualHooks: true,
+  for (const fantasyName of nameData) {
+    await FantasyName.create({
+      ...fantasyName,
+    });
+   }
+
+  // const fantasyName = await FantasyName.bulkCreate(nameData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
+
+  const raceDesc = await RaceDesc.bulkCreate(raceData, {
     returning: true,
   });
 
+  const clssDesc = await ClassDesc.bulkCreate(classData, {
+    returning: true,
+  });
+  
+  /*for (const raceDesc of raceData) {
+   await RaceDesc.bulkCreate({
+     ...raceDesc,
+   });
+  }
+
+  for (const classDesc of classData) {
+    await ClassDesc.create({
+      ...classDesc,
+    });
+   }
+
+  // const classDesc = await ClassDesc.bulkCreate(classData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
+*/
   process.exit(0);
 };
 

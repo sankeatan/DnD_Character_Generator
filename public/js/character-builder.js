@@ -3,6 +3,23 @@ const raceOptions = $('#race_option');
 
 const choices = $('#choice_options');
 
+const raceDisplay = $('#race_title');
+const classDisplay = $('#class_title');
+
+var newCharacter = {
+    name: '',
+    race: '',
+    class: '',
+    ab_score: '',
+    lvl: 1,
+    languages: '',
+    proficiences: '',
+    feats: '',
+    inventory: '',
+};
+
+var view = '';
+
 
 function show(value) {
     document.querySelector(".text-box").value = value;
@@ -16,6 +33,8 @@ function show(value) {
 
 function classDropDown(){
     choices.empty()
+    view = "class";
+    console.log(view);
     const classArray = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
     for (var i = 0; i<classArray.length; i++){
         const imageUrl = `./images/${classArray[i]}Icon.png`;
@@ -30,8 +49,10 @@ function classDropDown(){
 
 function raceDropDown(){
     choices.empty();
+    view = "race";
+    console.log(view);
     const raceArray = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Tiefling'];
-    for (var i = 0; i<raceArray.length; i++){
+    for (var i = 0; i < raceArray.length; i++){
         const imageUrl = `./images/${raceArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
         var optionImg = $('<img>').addClass('option-Img').attr("href", imageUrl)
@@ -42,9 +63,27 @@ function raceDropDown(){
     }
 }
 
+function inputChoice(){
+    console.log('click');
+    switch (view) {
+        case "class": 
+        console.log($(this).val())
+        newCharacter.class == $(this).val();
+        raceDisplay.text(newCharacter.class);
+            break;
+        case "view": 
+        console.log($(this).val())
+        newCharacter.race == $(this).val();
+        classDisplay.text(newCharacter.race);
+            break;
+    }
+}
+
 const statArray = [15, 14, 13, 12, 10, 8];
 
-classDropDown();
+raceDropDown();
+
+choices.find(".option-Btn").on('click', inputChoice);
 
 classOptions.on('click', classDropDown);
 raceOptions.on('click', raceDropDown);

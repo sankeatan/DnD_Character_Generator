@@ -11,14 +11,10 @@ router.get('/', async (req, res) => {
     return classes;
     
   })
-
-
   .catch(function (error) {
-    // handle error
     console.log(error);
   })
   .then(function () {
-    // always executed
   });
 });
 
