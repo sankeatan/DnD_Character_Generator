@@ -6,9 +6,7 @@ router.get('/', async (req, res) => {
   await axios.get('https://www.dnd5eapi.co/api/classes')
     .then(function (response) {
       // handle success
-      console.log(response.data.results);
-      res.json(response.data.results);
-      const classes = response.data.results;
+      const classes = response.data;
       return classes;
 
     })
@@ -28,7 +26,6 @@ router.get('/:class', async (req, res) => {
       console.log(apiClassCall);
       const classCall = ClassDesc.findOne({ where: { class: req.params.class } })
       //classDescription = classCall.json();
-      console.log(classCall);
       const classes = response;
 
       classCall.then(function (result) {

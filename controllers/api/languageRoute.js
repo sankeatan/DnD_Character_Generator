@@ -6,9 +6,9 @@ router.get('/', async (req, res) => {
     await axios.get('https://www.dnd5eapi.co/api/languages')
     .then(function (response) {
       // handle success
-      console.log(response.data.results);
-      res.json(response.data.results);
-      const language = response.data.results;
+      console.log(response.data);
+      res.json(response.data);
+      const language = response.data;
       return language;
       
     })

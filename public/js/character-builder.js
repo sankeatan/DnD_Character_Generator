@@ -189,9 +189,9 @@ async function inputChoice() {
         sideImg.attr('src', classImgURL)
         const response = await fetch(`/api/classes/${newCharacter.class}`, {
             method: 'GET',
-          });
-        console.log(response.proficiencies);
-        console.log(response.starting_equipment_options);
+          })
+        .then((response) => {
+        console.log(response)
             break;
         case "race": 
         console.log($(this).val())

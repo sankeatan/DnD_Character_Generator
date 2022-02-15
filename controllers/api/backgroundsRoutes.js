@@ -22,7 +22,6 @@ router.get('/:background', async (req, res) => {
         }
       });
       const backgrounds = backgroundData.get({ plain: true });
-      console.log(backgrounds);
       res.json(backgroundData);
   
   } catch (err) {
