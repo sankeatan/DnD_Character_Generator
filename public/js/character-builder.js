@@ -54,6 +54,7 @@ function classDropDown() {
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
+    selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
 function raceDropDown() {
@@ -70,6 +71,7 @@ function raceDropDown() {
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
+    selection = choices.find(".option-Btn").on('click', inputChoice);
 }
 
 <<<<<<< HEAD
