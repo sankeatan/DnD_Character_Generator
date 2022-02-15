@@ -68,7 +68,7 @@ function raceDropDown(){
         const imageUrl = `./images/${raceArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
         var optionImg = $('<img>').addClass('option-Img').attr("src", imageUrl)
-        var option = $('<button>').val(raceArray[i].toLowerCase()).text(raceArray[i]).addClass('option-Btn');
+        var option = $('<button>').val(raceArray[i]).text(raceArray[i]).addClass('option-Btn');
         optionImg.appendTo(optionDiv);
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
@@ -83,7 +83,7 @@ function backgroundDropDown(){
     const backgroundArray = ['Acolyte', 'Urchin'];
     for (var i = 0; i < backgroundArray.length; i++){
         var optionDiv = $('<div>').addClass('option-Div')
-        var option = $('<button>').val(backgroundArray[i].toLowerCase()).text(backgroundArray[i]).addClass('option-Btn');
+        var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
