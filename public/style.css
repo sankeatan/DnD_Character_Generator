@@ -36,12 +36,12 @@ header, .project:not(:last-child) {
 
 header{
     background-color: rgba(0, 0, 0, 0.911);
-    border-color: red;
+    border-color: rgb(56, 109, 33);
     border-width: 2px;
 }
 
 body{
-    background-color: rgba(0, 0, 0, 0.61);
+    background-color: rgb(190, 192, 189);
 }
 
 .image1{
@@ -70,9 +70,10 @@ body{
     align-items: center;
     grid-area: 1 / 2 / 2 / 3; 
     border-width: 1px;
-    border-color: rgba(0, 0, 0, 0.788);
+    border-color: ta(0, 0, 0, 0.788);
     border-style: solid;
     border-top: 0px !important;
+    background-color: rgba(172, 144, 108, 0.705);
     }
 
 .box3 {
@@ -88,6 +89,7 @@ body{
     border-width: 1px;
     border-color: rgba(0, 0, 0, 0.788);
     border-style: solid;
+    background-color: rgba(172, 144, 108, 0.705);
     }
 
 .fill{
@@ -129,4 +131,12 @@ body{
 button{
     background-color: inherit;
     border-width: 0;
+}
+
+.display-4{
+    color:black;
+}
+
+.button-box{
+    color: black;
 }

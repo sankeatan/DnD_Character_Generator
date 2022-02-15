@@ -24,7 +24,7 @@ var newCharacter = {
     proficiences: '',
     feats: '',
     inventory: '',
-    gender: 'female',
+    gender: 'Female',
 };
 
 var view = '';
@@ -65,13 +65,17 @@ function raceDropDown() {
         const imageUrl = `./images/${raceArray[i]}Icon.png`;
         var optionDiv = $('<div>').addClass('option-Div')
         var optionImg = $('<img>').addClass('option-Img').attr("src", imageUrl)
-        var option = $('<button>').val(raceArray[i].toLowerCase()).text(raceArray[i]).addClass('option-Btn');
+        var option = $('<button>').val(raceArray[i]).text(raceArray[i]).addClass('option-Btn');
         optionImg.appendTo(optionDiv);
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> eb105aec2d041ed47c3f6c8f0a3349d31404b8e6
 function backgroundDropDown(){
     choices.empty();
     view = "background";
@@ -79,16 +83,26 @@ function backgroundDropDown(){
     const backgroundArray = ['Acolyte', 'Urchin'];
     for (var i = 0; i < backgroundArray.length; i++){
         var optionDiv = $('<div>').addClass('option-Div')
-        var option = $('<button>').val(backgroundArray[i].toLowerCase()).text(backgroundArray[i]).addClass('option-Btn');
+        var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
     }
     selection = choices.find(".option-Btn").on('click', inputChoice);
 }
-
 function abilityScoreDropDown(){
     choices.empty();
-    
+    var strDiv = $('<div>').addClass('option-Div').text('Strength: ');
+    strDiv.appendTo(choices);
+    var dexDiv = $('<div>').addClass('option-Div').text('Dexterity: ');
+    dexDiv.appendTo(choices);
+    var conDiv = $('<div>').addClass('option-Div').text('Constitution: ');
+    conDiv.appendTo(choices);
+    var wisDiv = $('<div>').addClass('option-Div').text('Wisdom: ');
+    wisDiv.appendTo(choices);
+    var intDiv = $('<div>').addClass('option-Div').text('Intelligence: ');
+    intDiv.appendTo(choices);
+    var chaDiv = $('<div>').addClass('option-Div').text('Charisma: ');
+    chaDiv.appendTo(choices);
 }
 
 async function languageDropDown(){
@@ -98,18 +112,19 @@ async function languageDropDown(){
         optionDiv.appendTo(choices);
     } else {
     view = "language";
-    const response = await fetch(`/api/background/`, {
+    const response = await fetch(`/api/background/${(newCharacter.background).toLowerCase()}`, {
         method: 'GET',
       });
-    const backgroundArray = ['Acolyte', 'Urchin'];
+    console.log(response);
+    /*const backgroundArray = ['Acolyte', 'Urchin'];
     for (var i = 0; i < backgroundArray.length; i++){
         var optionDiv = $('<div>').addClass('option-Div')
         var option = $('<button>').val(backgroundArray[i]).text(backgroundArray[i]).addClass('option-Btn');
         option.appendTo(optionDiv);
         optionDiv.appendTo(choices);
-    }}
+    }}*/
     selection = choices.find(".option-Btn").on('click', inputChoice);
-}
+}}
 
 function proficiencyDropDown(){
 
@@ -123,31 +138,53 @@ function inventoryDropDown(){
 
 }
 
+<<<<<<< HEAD
 function inputChoice(){
+=======
+async function inputChoice(){
+>>>>>>> eb105aec2d041ed47c3f6c8f0a3349d31404b8e6
     switch (view) {
-        case "class":
-            console.log($(this).val())
-            newCharacter.class = $(this).val();
-            raceDisplay.text(newCharacter.class);
+        case "class": 
+        console.log($(this).val())
+        newCharacter.class = $(this).val();
+        classDisplay.text(newCharacter.class);
+        const response = await fetch(`/api/classes/${(newCharacter.class).toLowerCase()}`, {
+            method: 'GET',
+          });
             break;
+<<<<<<< HEAD
         case "view":
             console.log($(this).val())
             newCharacter.race = $(this).val();
             classDisplay.text(newCharacter.race);
+=======
+
+        case "race": 
+        console.log($(this).val())
+        newCharacter.race = $(this).val();
+        profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
+        profileImg.attr('src', profileUrl)
+        raceDisplay.text(newCharacter.race);
+            break;
+        case "background": 
+        console.log($(this).val())
+        newCharacter.background = $(this).val();
+            break;
+        case "language": 
+        console.log($(this).val())
+        newCharacter.languages += ` ${$(this).val()}`;
+>>>>>>> eb105aec2d041ed47c3f6c8f0a3349d31404b8e6
             break;
     }
 }
-
-const statArray = [15, 14, 13, 12, 10, 8];
 
 raceDropDown();
 
 
 classOptions.on('click', classDropDown);
 raceOptions.on('click', raceDropDown);
-
-choices.find(".option-Btn").on('click', inputChoice);
-
-
+backgroundOptions.on('click', backgroundDropDown);
+languageOptions.on('click', languageDropDown);
+abilityScoreOptions.on('click', abilityScoreDropDown);
 
 

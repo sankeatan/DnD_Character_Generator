@@ -1,6 +1,10 @@
 const router = require('express').Router();
 const axios = require('axios');
+<<<<<<< HEAD
 const ClassDesc = require('./ClassDesc');
+=======
+const ClassDesc = require('../../models/ClassDesc');
+>>>>>>> eb105aec2d041ed47c3f6c8f0a3349d31404b8e6
 
 router.get('/', async (req, res) => {
     await axios.get('https://www.dnd5eapi.co/api/classes')
@@ -29,10 +33,15 @@ router.get('/:class', async (req, res) => {
   res.json(response.data);
   const classes = response.data;
 
+<<<<<<< HEAD
   const characterDescriptionCall = CharDesc
+=======
+  const characterDescriptionCall = ClassDesc.findOne({ where: { class: req.body.class } })
+
+  console.log(characterDescriptionCall);
+>>>>>>> eb105aec2d041ed47c3f6c8f0a3349d31404b8e6
 
   return classes;
-  
 })
 
 
