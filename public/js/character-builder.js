@@ -135,12 +135,15 @@ function inventoryDropDown(){
 
 }
 
-function inputChoice(){
+async function inputChoice(){
     switch (view) {
-        case "class":
-            console.log($(this).val())
-            newCharacter.class = $(this).val();
-            raceDisplay.text(newCharacter.class);
+        case "class": 
+        console.log($(this).val())
+        newCharacter.class = $(this).val();
+        classDisplay.text(newCharacter.class);
+        const response = await fetch(`/api/classes/${(newCharacter.class).toLowerCase()}`, {
+            method: 'GET',
+          });
             break;
 
         case "race": 
@@ -148,7 +151,7 @@ function inputChoice(){
         newCharacter.race = $(this).val();
         profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`
         profileImg.attr('src', profileUrl)
-        classDisplay.text(newCharacter.race);
+        raceDisplay.text(newCharacter.race);
             break;
         case "background": 
         console.log($(this).val())
