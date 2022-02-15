@@ -10,7 +10,7 @@ const inventoryOptions = $('#inventory_option');
 const choices = $('#choice_options');
 
 const raceDisplay = $('#race_title');
-const classDisplay = $('#class_title');
+const classDisplay = $('.class_title');
 const profileImg = $('profile_img');
 
 var newCharacter = {
@@ -85,7 +85,9 @@ function backgroundDropDown(){
     }
     selection = choices.find(".option-Btn").on('click', inputChoice);
 }
+
 function abilityScoreDropDown(){
+    view = "abilities";
     choices.empty();
     var strDiv = $('<div>').addClass('option-Div').attr('name', 'str').text('Strength: ');
     var strInput = $('<input>').attr('for', 'str').addClass('abs_input');
@@ -152,12 +154,11 @@ async function inputChoice(){
         console.log($(this).val())
         newCharacter.class = $(this).val();
         classDisplay.text(newCharacter.class);
-        newCharacter.class = (newCharacter.class).toLowerCase();
         const response = await fetch(`/api/classes/${newCharacter.class}`, {
             method: 'GET',
           });
+        console.log(response);
             break;
-
         case "race": 
         console.log($(this).val())
         newCharacter.race = $(this).val();
@@ -170,6 +171,10 @@ async function inputChoice(){
         newCharacter.background = $(this).val();
             break;
         case "language": 
+        console.log($(this).val())
+        newCharacter.languages += ` ${$(this).val()}`;
+            break;
+        case "abilities":
         console.log($(this).val())
         newCharacter.languages += ` ${$(this).val()}`;
             break;
