@@ -214,3 +214,8 @@ grid-row-gap: 0px;
 .border-top {
     border-color: rgb(29, 44, 23)!important;
 }
+
+.btn-check:focus+.btn-secondary, .btn-secondary:focus{
+    background-color: inherit!important;
+    border-color: inherit!important;
+}
