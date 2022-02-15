@@ -182,6 +182,7 @@ async function inputChoice() {
                 
               }).then(function(data) {
                 console.log(data);
+                sideText.text(data.description);
               })
               
 
@@ -220,7 +221,6 @@ function saveName() {
 }
 
 function characterSave(){
-
         const response = await fetch('/api/users/', {
           method: 'POST',
           body: JSON.stringify(newCharacter),
