@@ -6,6 +6,8 @@ const languageOptions = $('#lang_option');
 const proficiencyOptions = $('#prof_option');
 const featureOptions = $('#feat_option');
 const inventoryOptions = $('#inventory_option');
+const maleButton = $('#male');
+const femaleButton = $('#female');
 
 const choices = $('#choice_options');
 
@@ -184,6 +186,12 @@ async function inputChoice() {
     }
 }
 
+function changeGender(){
+    newCharacter.gender=$(this).val();
+    var profileUrl = `/images/${newCharacter.race}${newCharacter.gender}Icon.png`;
+    profileImg.attr('src', profileUrl)
+}
+
 raceDropDown();
 
 
@@ -192,5 +200,8 @@ raceOptions.on('click', raceDropDown);
 backgroundOptions.on('click', backgroundDropDown);
 languageOptions.on('click', languageDropDown);
 abilityScoreOptions.on('click', abilityScoreDropDown);
+maleButton.on('click', changeGender);
+femaleButton.on('click', changeGender);
+
 
 
