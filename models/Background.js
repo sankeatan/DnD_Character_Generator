@@ -1,55 +1,69 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const { APIReference } = require('./common');
 
-class Background extends Model {}
+const LanguageOptions = {
+  _id: false,
+  choose: { type: Number, index: true },
+  from: [APIReference],
+  type: { type: String, index: true },
+};
 
-Background.init(
-  {
-id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true,
-    },
-name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    },
-languages: {
-  type: DataTypes.STRING,
-  allowNull: true,
-},
-starting_equipment: {
-  type: DataTypes.STRING,
-  allowNull: false,
-},
-starting_money: {
-  type: DataTypes.STRING,
-  allowNull: true,
-},
-equipment_options: {
-  type: DataTypes.STRING,
-  allowNull: true,
-},
-skill_proficiencies: {
-  type: DataTypes.STRING,
-  allowNull: false,
-},
-tool_proficiencies: {
-  type: DataTypes.STRING,
-  allowNull: true,
-},
-feature: {
-  type: DataTypes.TEXT,
-  allowNull: false,
-}
-},
-{
-  sequelize,
-  timestamps: false,
-  underscored: true,
-  modelName: 'background',
-}
-);
+const Equipment = {
+  _id: false,
+  equipment: APIReference,
+  quantity: { type: Number, index: true },
+};
 
-module.exports = Background;
+const StartingEquipmentOption = {
+  _id: false,
+  equipment: APIReference,
+  quantity: { type: Number, index: true },
+};
+
+const StartingEquipmentOptions = {
+  _id: false,
+  choose: { type: Number, index: true },
+  from: [StartingEquipmentOption],
+  type: { type: String, index: true },
+};
+
+const Ideal = {
+  desc: { type: String, index: true },
+  alignments: [APIReference],
+};
+
+const CharacteristicOptions = {
+  choose: { type: Number, index: true },
+  from: { type: [String], index: true },
+  type: { type: String, index: true },
+};
+
+const IdealOptions = {
+  choose: { type: Number, index: true },
+  from: [Ideal],
+  type: { type: String, index: true },
+};
+
+const Feature = {
+  name: { type: String, index: true },
+  desc: { type: [String], index: true },
+};
+
+const Background = new Schema({
+  _id: { type: String, select: false },
+  index: { type: String, index: true },
+  name: { type: String, index: true },
+  starting_proficiencies: [APIReference],
+  language_options: LanguageOptions,
+  url: { type: String, index: true },
+  starting_equipment: [Equipment],
+  starting_equipment_options: [StartingEquipmentOptions],
+  feature: Feature,
+  personality_traits: CharacteristicOptions,
+  ideals: IdealOptions,
+  bonds: CharacteristicOptions,
+  flaws: CharacteristicOptions,
+});
+
+module.exports = mongoose.model('Background', Background, 'backgrounds');
